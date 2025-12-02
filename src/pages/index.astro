@@ -165,7 +165,6 @@
         font-size: 0.8rem;
         color: var(--muted);
       }
-      /* forms */
       form {
         display: flex;
         flex-direction: column;
@@ -188,11 +187,35 @@
         min-height: 80px;
       }
 
-      /* live metals widget */
-      #live-metals .feature-card {
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
+      /* Live market grid */
+      .market-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 0.7rem;
+        margin-top: 0.7rem;
+      }
+      .market-item {
+        padding: 0.6rem 0.7rem;
+        border-radius: 0.7rem;
+        border: 1px solid rgba(148, 163, 184, 0.3);
+        background: rgba(15, 23, 42, 0.7);
+      }
+      .market-label {
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .market-value {
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+      .market-sub {
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .market-updated {
+        margin-top: 0.5rem;
+        font-size: 0.75rem;
+        color: var(--muted);
       }
     </style>
   </head>
@@ -206,7 +229,7 @@
         </div>
         <nav>
           <a href="#how">How it works</a>
-          <a href="#live-metals">Gold & Silver</a>
+          <a href="#live-market">Live prices</a>
           <a href="#borrow-form">Borrow</a>
           <a href="#lend-form">Lend</a>
           <a href="#contact">Contact</a>
@@ -277,8 +300,8 @@
                 <strong id="calc-total">$0</strong>
               </div>
               <p class="tiny-note" style="margin-top:0.4rem;">
-                This is a simple interest example. It is not a real offer or
-                guaranteed return.
+                This is a simple interest-style calculation. It is not a real
+                offer or guaranteed return.
               </p>
             </div>
           </aside>
@@ -299,26 +322,65 @@
           <div class="feature-card">
             <h2>For lenders & investors</h2>
             <ul>
-              <li>Lend in crypto, stablecoins or tokenized assets (e.g. tokenized gold, RWA tokens).</li>
+              <li>
+                Lend in crypto, stablecoins or tokenized assets (e.g. tokenized
+                gold, RWA tokens).
+              </li>
               <li>You choose rate, duration and who you want to support.</li>
               <li>Coins always stay in your own wallets until you lend.</li>
-              <li>Future: optional smart-contract tools for on-chain escrow.</li>
+              <li>
+                Future: optional smart-contract tools for on-chain escrow or
+                collateral.
+              </li>
             </ul>
           </div>
         </section>
 
-        <!-- LIVE GOLD & SILVER -->
-        <section id="live-metals" class="features" style="margin-top:2rem;">
+        <!-- LIVE MARKET (gold, silver, BTC, ETH, FX) -->
+        <section id="live-market" class="features" style="margin-top:2rem;">
           <div class="feature-card">
-            <h2>Live gold & silver prices</h2>
+            <h2>Live market overview</h2>
             <p class="tiny-note">
-              Gold (per ounce): <strong id="gold-price">Loading…</strong>
+              Approximate live prices from public APIs. Updated when you open
+              the page.
             </p>
-            <p class="tiny-note">
-              Silver (per ounce): <strong id="silver-price">Loading…</strong>
-            </p>
-            <p class="tiny-note">
-              Prices fetched from MetalPriceAPI (spot prices in USD).
+
+            <div class="market-grid">
+              <div class="market-item">
+                <div class="market-label">Gold (XAU)</div>
+                <div class="market-value" id="gold-price">Loading…</div>
+                <div class="market-sub">per ounce in USD</div>
+              </div>
+
+              <div class="market-item">
+                <div class="market-label">Silver (XAG)</div>
+                <div class="market-value" id="silver-price">Loading…</div>
+                <div class="market-sub">per ounce in USD</div>
+              </div>
+
+              <div class="market-item">
+                <div class="market-label">Bitcoin (BTC)</div>
+                <div class="market-value" id="btc-price">Loading…</div>
+                <div class="market-sub">price in USD</div>
+              </div>
+
+              <div class="market-item">
+                <div class="market-label">Ethereum (ETH)</div>
+                <div class="market-value" id="eth-price">Loading…</div>
+                <div class="market-sub">price in USD</div>
+              </div>
+
+              <div class="market-item">
+                <div class="market-label">USD ↔ NOK</div>
+                <div class="market-value" id="usd-nok">Loading…</div>
+                <div class="market-sub">
+                  1 NOK ≈ <span id="nok-usd">…</span> USD
+                </div>
+              </div>
+            </div>
+
+            <p class="market-updated" id="market-updated">
+              Fetching data…
             </p>
           </div>
         </section>
@@ -376,7 +438,7 @@
                 class="borrow-input"
                 type="text"
                 name="asset_details"
-                placeholder="If tokenized asset: which token / network (e.g. tokenized gold on Ethereum)"
+                placeholder="If tokenized: which token / network (e.g. tokenized gold on Ethereum)"
               />
 
               <textarea
@@ -386,7 +448,9 @@
                 required
               ></textarea>
 
-              <button class="btn btn-primary" type="submit">Send borrow request</button>
+              <button class="btn btn-primary" type="submit">
+                Send borrow request
+              </button>
 
               <p class="tiny-note" style="margin-top:0.5rem;">
                 Note: This is not a bank or savings account. Every loan is a
@@ -453,7 +517,7 @@
                 type="number"
                 name="interest"
                 step="0.1"
-                placeholder="Desired interest rate per year (%) – e.g. 3, 5, 8"
+                placeholder="Desired interest per year (%) – e.g. 3, 5, 8"
               />
               <input
                 class="borrow-input"
@@ -503,14 +567,14 @@
       </main>
     </div>
 
-    <!-- JS: loan calculator + live metals -->
+    <!-- JS: loan calculator + live market -->
     <script>
       // ---------- Loan Calculator ----------
       const amt = document.getElementById("calc-amount");
       const months = document.getElementById("calc-months");
       const rate = document.getElementById("calc-rate");
-      const monthly = document.getElementById("calc-monthly");
-      const total = document.getElementById("calc-total");
+      const monthlyEl = document.getElementById("calc-monthly");
+      const totalEl = document.getElementById("calc-total");
 
       function updateCalc() {
         const A = parseFloat(amt.value || "0");
@@ -518,8 +582,8 @@
         const R = parseFloat(rate.value || "0");
 
         if (!A || !M || !R) {
-          monthly.textContent = "$0";
-          total.textContent = "$0";
+          monthlyEl.textContent = "$0";
+          totalEl.textContent = "$0";
           return;
         }
 
@@ -527,8 +591,8 @@
         const monthlyPayment =
           (A * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -M));
 
-        monthly.textContent = "$" + monthlyPayment.toFixed(2);
-        total.textContent = "$" + (monthlyPayment * M).toFixed(2);
+        monthlyEl.textContent = "$" + monthlyPayment.toFixed(2);
+        totalEl.textContent = "$" + (monthlyPayment * M).toFixed(2);
       }
 
       amt.addEventListener("input", updateCalc);
@@ -536,16 +600,20 @@
       rate.addEventListener("input", updateCalc);
       updateCalc();
 
-      // ---------- Live Gold & Silver Prices ----------
+      // ---------- Live Market (Gold, Silver, BTC, ETH, USD/NOK) ----------
+
       // 🔑 Replace this with your real MetalPriceAPI key (from metalpriceapi.com)
       const METAL_API_KEY = "PASTE_YOUR_REAL_KEY_HERE";
 
-      async function loadMetalPrices() {
-        const goldEl = document.getElementById("gold-price");
-        const silverEl = document.getElementById("silver-price");
+      const goldEl = document.getElementById("gold-price");
+      const silverEl = document.getElementById("silver-price");
+      const btcEl = document.getElementById("btc-price");
+      const ethEl = document.getElementById("eth-price");
+      const usdNokEl = document.getElementById("usd-nok");
+      const nokUsdEl = document.getElementById("nok-usd");
+      const updatedEl = document.getElementById("market-updated");
 
-        if (!goldEl || !silverEl) return;
-
+      async function fetchMetals() {
         if (
           !METAL_API_KEY ||
           METAL_API_KEY === "PASTE_YOUR_REAL_KEY_HERE"
@@ -572,14 +640,14 @@
 
           if (xau) {
             const goldPrice = 1 / xau;
-            goldEl.textContent = "$" + goldPrice.toFixed(2) + " / oz";
+            goldEl.textContent = "$" + goldPrice.toFixed(2);
           } else {
             goldEl.textContent = "Unavailable";
           }
 
           if (xag) {
             const silverPrice = 1 / xag;
-            silverEl.textContent = "$" + silverPrice.toFixed(2) + " / oz";
+            silverEl.textContent = "$" + silverPrice.toFixed(2);
           } else {
             silverEl.textContent = "Unavailable";
           }
@@ -590,7 +658,72 @@
         }
       }
 
-      loadMetalPrices();
+      async function fetchCrypto() {
+        try {
+          const res = await fetch(
+            "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd"
+          );
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          const data = await res.json();
+          const btc = data.bitcoin?.usd;
+          const eth = data.ethereum?.usd;
+
+          if (btc) {
+            btcEl.textContent = "$" + btc.toLocaleString(undefined, {
+              maximumFractionDigits: 0,
+            });
+          } else {
+            btcEl.textContent = "Unavailable";
+          }
+
+          if (eth) {
+            ethEl.textContent = "$" + eth.toLocaleString(undefined, {
+              maximumFractionDigits: 0,
+            });
+          } else {
+            ethEl.textContent = "Unavailable";
+          }
+        } catch (err) {
+          console.error("Crypto price error:", err);
+          btcEl.textContent = "Error";
+          ethEl.textContent = "Error";
+        }
+      }
+
+      async function fetchFX() {
+        try {
+          const res = await fetch("https://open.er-api.com/v6/latest/USD");
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          const data = await res.json();
+          const nokRate = data.rates?.NOK;
+
+          if (nokRate) {
+            usdNokEl.textContent = "1 USD ≈ " + nokRate.toFixed(2) + " NOK";
+            const inv = 1 / nokRate;
+            nokUsdEl.textContent = inv.toFixed(4);
+          } else {
+            usdNokEl.textContent = "Unavailable";
+            nokUsdEl.textContent = "Unavailable";
+          }
+        } catch (err) {
+          console.error("FX error:", err);
+          usdNokEl.textContent = "Error";
+          nokUsdEl.textContent = "Error";
+        }
+      }
+
+      async function loadMarket() {
+        if (updatedEl) updatedEl.textContent = "Fetching data…";
+        await Promise.all([fetchMetals(), fetchCrypto(), fetchFX()]);
+        if (updatedEl) {
+          const now = new Date();
+          updatedEl.textContent =
+            "Last updated: " +
+            now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+        }
+      }
+
+      loadMarket();
     </script>
   </body>
 </html>
