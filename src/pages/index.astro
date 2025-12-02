@@ -1,19 +1,596 @@
----
-import Layout from '../layouts/Layout.astro';
-import Markdown from '../components/Markdown.astro';
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Amicbridge – Crypto, Stablecoins & Tokenized Assets</title>
+    <meta
+      name="description"
+      content="Amicbridge connects people who want to borrow and lend using crypto, stablecoins and tokenized assets – directly wallet to wallet."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #020617;
+        --card: #020617;
+        --accent: #22c55e;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --border: #1f2933;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, sans-serif;
+        background: radial-gradient(circle at top, #0f172a 0, #020617 55%);
+        color: var(--text);
+      }
+      .shell {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 2.5rem 1.5rem 4rem;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-weight: 600;
+      }
+      .logo-mark {
+        width: 26px;
+        height: 26px;
+        border-radius: 999px;
+        background: radial-gradient(circle, #4ade80, #16a34a);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      nav a {
+        font-size: 0.9rem;
+        color: var(--muted);
+        text-decoration: none;
+        margin-left: 1.2rem;
+      }
+      nav a.button {
+        background: var(--accent);
+        color: black;
+        padding: 0.45rem 0.95rem;
+        border-radius: 999px;
+        font-weight: 500;
+      }
+      .hero {
+        display: grid;
+        gap: 2rem;
+        margin-top: 1rem;
+      }
+      @media (min-width: 800px) {
+        .hero {
+          grid-template-columns: 1.4fr 1fr;
+        }
+      }
+      h1 {
+        font-size: clamp(2.2rem, 3vw + 1rem, 3.1rem);
+        margin: 0 0 1rem;
+      }
+      .hero p {
+        color: var(--muted);
+        max-width: 34rem;
+      }
+      .btn {
+        border-radius: 999px;
+        padding: 0.65rem 1.4rem;
+        cursor: pointer;
+        border: 1px solid var(--border);
+        background: transparent;
+        color: var(--text);
+        text-decoration: none;
+        font-size: 0.95rem;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: black;
+        border-color: var(--accent);
+      }
+      .card {
+        background: rgba(15, 23, 42, 0.88);
+        padding: 1.4rem;
+        border-radius: 1.2rem;
+        border: 1px solid rgba(148, 163, 184, 0.25);
+      }
+      .inline-label {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-top: 1rem;
+        margin-bottom: 0.25rem;
+      }
+      .fake-input {
+        padding: 0.65rem 0.8rem;
+        background: rgba(15, 23, 42, 0.4);
+        border: 1px solid rgba(148, 163, 184, 0.5);
+        border-radius: 0.7rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+      }
+      .fake-input span {
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+      .calc-field {
+        background: transparent;
+        border: none;
+        text-align: right;
+        color: white;
+        width: 60%;
+        font-size: 0.9rem;
+      }
+      .calc-field:focus {
+        outline: none;
+      }
+      .features {
+        display: grid;
+        gap: 1rem;
+        margin-top: 3rem;
+      }
+      @media (min-width: 800px) {
+        .features {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      .feature-card {
+        background: rgba(15, 23, 42, 0.88);
+        border-radius: 1rem;
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        padding: 1.2rem;
+      }
+      .feature-card h2 {
+        margin-top: 0;
+      }
+      .feature-card ul {
+        padding-left: 1.1rem;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+      .feature-card li + li {
+        margin-top: 0.25rem;
+      }
+      .tiny-note {
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+      /* forms */
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        margin-top: 0.5rem;
+      }
+      .borrow-input,
+      .borrow-textarea,
+      select.borrow-input {
+        width: 100%;
+        padding: 0.55rem 0.7rem;
+        border-radius: 0.55rem;
+        border: 1px solid rgba(148, 163, 184, 0.5);
+        background: rgba(15, 23, 42, 0.8);
+        color: var(--text);
+        font-size: 0.9rem;
+      }
+      .borrow-textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
 
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
----
+      /* live metals widget */
+      #live-metals .feature-card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+    </style>
+  </head>
 
-<Layout title="Welcome to Astro.">
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
-</Layout>
+  <body>
+    <div class="shell">
+      <header>
+        <div class="logo">
+          <div class="logo-mark">A</div>
+          <span>Amicbridge</span>
+        </div>
+        <nav>
+          <a href="#how">How it works</a>
+          <a href="#live-metals">Gold & Silver</a>
+          <a href="#borrow-form">Borrow</a>
+          <a href="#lend-form">Lend</a>
+          <a href="#contact">Contact</a>
+          <a class="button" href="#start">Get started</a>
+        </nav>
+      </header>
+
+      <main>
+        <!-- HERO + CALCULATOR -->
+        <section class="hero" id="start">
+          <div>
+            <h1>
+              Borrow in crypto, stablecoins<br />
+              and tokenized assets.
+            </h1>
+            <p>
+              Amicbridge connects people who want to borrow with people who want
+              to lend – using crypto, stablecoins (USDT, USDC, DAI) and
+              tokenized assets. All transfers are wallet to wallet. You keep
+              full control of your keys; Amicbridge never holds your funds.
+            </p>
+
+            <div style="display:flex; gap:0.8rem; margin-top:1rem;">
+              <a class="btn btn-primary" href="#borrow-form">I want to borrow</a>
+              <a class="btn" href="#lend-form">I want to lend / invest</a>
+            </div>
+          </div>
+
+          <aside>
+            <div class="card">
+              <p class="inline-label">Loan calculator (example only)</p>
+              <div class="fake-input">
+                <span>Amount (e.g. 2000 USDT)</span>
+                <input
+                  id="calc-amount"
+                  class="calc-field"
+                  type="number"
+                  placeholder="2000"
+                />
+              </div>
+              <div class="fake-input">
+                <span>Months</span>
+                <input
+                  id="calc-months"
+                  class="calc-field"
+                  type="number"
+                  placeholder="6"
+                />
+              </div>
+              <div class="fake-input">
+                <span>Interest % per year</span>
+                <input
+                  id="calc-rate"
+                  class="calc-field"
+                  type="number"
+                  placeholder="4.5"
+                  step="0.1"
+                />
+              </div>
+
+              <p class="inline-label">Estimate</p>
+              <div class="fake-input">
+                <span>Monthly payment</span>
+                <strong id="calc-monthly">$0</strong>
+              </div>
+              <div class="fake-input">
+                <span>Total to repay</span>
+                <strong id="calc-total">$0</strong>
+              </div>
+              <p class="tiny-note" style="margin-top:0.4rem;">
+                This is a simple interest example. It is not a real offer or
+                guaranteed return.
+              </p>
+            </div>
+          </aside>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section class="features" id="how">
+          <div class="feature-card">
+            <h2>For borrowers</h2>
+            <ul>
+              <li>Borrow in stablecoins (USDT, USDC, DAI) or agreed tokenized assets.</li>
+              <li>Wallet-to-wallet transfers – no banks, no custody.</li>
+              <li>Explain your situation in plain language.</li>
+              <li>Agree interest and terms directly with the lender.</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <h2>For lenders & investors</h2>
+            <ul>
+              <li>Lend in crypto, stablecoins or tokenized assets (e.g. tokenized gold, RWA tokens).</li>
+              <li>You choose rate, duration and who you want to support.</li>
+              <li>Coins always stay in your own wallets until you lend.</li>
+              <li>Future: optional smart-contract tools for on-chain escrow.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- LIVE GOLD & SILVER -->
+        <section id="live-metals" class="features" style="margin-top:2rem;">
+          <div class="feature-card">
+            <h2>Live gold & silver prices</h2>
+            <p class="tiny-note">
+              Gold (per ounce): <strong id="gold-price">Loading…</strong>
+            </p>
+            <p class="tiny-note">
+              Silver (per ounce): <strong id="silver-price">Loading…</strong>
+            </p>
+            <p class="tiny-note">
+              Prices fetched from MetalPriceAPI (spot prices in USD).
+            </p>
+          </div>
+        </section>
+
+        <!-- BORROW FORM -->
+        <section id="borrow-form" class="features" style="margin-top:2.5rem;">
+          <div class="feature-card">
+            <h2>Borrow crypto / stablecoins / tokenized assets</h2>
+            <p class="tiny-note">
+              Fill in your details. We receive your request by email and try to
+              match you with a suitable lender or investor. All transfers are
+              wallet to wallet between you and them.
+            </p>
+            <form name="borrow" method="POST" data-netlify="true">
+              <input type="hidden" name="form-name" value="borrow" />
+              <input
+                class="borrow-input"
+                type="text"
+                name="name"
+                placeholder="Your name"
+                required
+              />
+              <input
+                class="borrow-input"
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+              />
+              <input
+                class="borrow-input"
+                type="text"
+                name="wallet"
+                placeholder="Your main wallet address (e.g. Ethereum address)"
+                required
+              />
+              <input
+                class="borrow-input"
+                type="number"
+                name="amount"
+                placeholder="Amount (value in USDT / USDC / DAI, etc.)"
+                required
+              />
+
+              <select class="borrow-input" name="asset_type" required>
+                <option value="">What do you want to borrow?</option>
+                <option value="crypto">Crypto (e.g. BTC, ETH, SOL)</option>
+                <option value="stablecoin">Stablecoin (USDT, USDC, DAI)</option>
+                <option value="tokenized">
+                  Tokenized asset (e.g. tokenized gold, RWA token)
+                </option>
+              </select>
+
+              <input
+                class="borrow-input"
+                type="text"
+                name="asset_details"
+                placeholder="If tokenized asset: which token / network (e.g. tokenized gold on Ethereum)"
+              />
+
+              <textarea
+                class="borrow-textarea"
+                name="reason"
+                placeholder="Explain why you need the loan and how you plan to repay."
+                required
+              ></textarea>
+
+              <button class="btn btn-primary" type="submit">Send borrow request</button>
+
+              <p class="tiny-note" style="margin-top:0.5rem;">
+                Note: This is not a bank or savings account. Every loan is a
+                private agreement between you and the lender.
+              </p>
+            </form>
+          </div>
+        </section>
+
+        <!-- LEND FORM -->
+        <section id="lend-form" class="features" style="margin-top:2.5rem;">
+          <div class="feature-card">
+            <h2>Lend & invest</h2>
+            <p class="tiny-note">
+              Tell us how you want to lend or invest: asset type, amount,
+              desired interest and typical duration. We contact you when we see
+              a potential match.
+            </p>
+            <form name="lend" method="POST" data-netlify="true">
+              <input type="hidden" name="form-name" value="lend" />
+              <input
+                class="borrow-input"
+                type="text"
+                name="name"
+                placeholder="Your name"
+                required
+              />
+              <input
+                class="borrow-input"
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+              />
+              <input
+                class="borrow-input"
+                type="text"
+                name="wallet"
+                placeholder="Your main wallet / network (e.g. Ledger on Ethereum)"
+                required
+              />
+              <input
+                class="borrow-input"
+                type="number"
+                name="amount"
+                placeholder="Amount you want to lend (value in USDT / USDC / DAI, etc.)"
+                required
+              />
+
+              <select class="borrow-input" name="asset_type" required>
+                <option value="">What do you want to lend?</option>
+                <option value="crypto">Crypto (e.g. BTC, ETH, SOL)</option>
+                <option value="stablecoin">Stablecoin (USDT, USDC, DAI)</option>
+                <option value="tokenized">
+                  Tokenized asset (e.g. tokenized gold, RWA token)
+                </option>
+                <option value="mix">
+                  Mix of crypto / stablecoins / tokenized assets
+                </option>
+              </select>
+
+              <input
+                class="borrow-input"
+                type="number"
+                name="interest"
+                step="0.1"
+                placeholder="Desired interest rate per year (%) – e.g. 3, 5, 8"
+              />
+              <input
+                class="borrow-input"
+                type="text"
+                name="duration"
+                placeholder="Typical duration (e.g. 3–12 months)"
+              />
+
+              <textarea
+                class="borrow-textarea"
+                name="notes"
+                placeholder="Anything else we should know about your lending / investing preferences."
+              ></textarea>
+
+              <button class="btn btn-primary" type="submit">
+                Send lending / investing offer
+              </button>
+
+              <p class="tiny-note" style="margin-top:0.5rem;">
+                Important: Lending and investing in crypto and tokenized assets
+                can be risky. There is no guaranteed return and borrowers may
+                fail to repay.
+              </p>
+            </form>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="features" style="margin-top:2.5rem;">
+          <div class="feature-card">
+            <h2>Contact</h2>
+            <p><strong>CEO:</strong> Robert</p>
+            <p><strong>Phone:</strong> 929 28 373</p>
+            <p>
+              <strong>Email:</strong>
+              <a href="mailto:robertamicolsen@gmail.com" style="color:var(--accent);">
+                robertamicolsen@gmail.com
+              </a>
+            </p>
+            <p><strong>Location:</strong> Oslo, Norway</p>
+            <p class="tiny-note">
+              Amicbridge is a connection platform. We never hold your coins, do
+              not guarantee repayments and do not give financial advice.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- JS: loan calculator + live metals -->
+    <script>
+      // ---------- Loan Calculator ----------
+      const amt = document.getElementById("calc-amount");
+      const months = document.getElementById("calc-months");
+      const rate = document.getElementById("calc-rate");
+      const monthly = document.getElementById("calc-monthly");
+      const total = document.getElementById("calc-total");
+
+      function updateCalc() {
+        const A = parseFloat(amt.value || "0");
+        const M = parseFloat(months.value || "0");
+        const R = parseFloat(rate.value || "0");
+
+        if (!A || !M || !R) {
+          monthly.textContent = "$0";
+          total.textContent = "$0";
+          return;
+        }
+
+        const monthlyRate = (R / 100) / 12;
+        const monthlyPayment =
+          (A * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -M));
+
+        monthly.textContent = "$" + monthlyPayment.toFixed(2);
+        total.textContent = "$" + (monthlyPayment * M).toFixed(2);
+      }
+
+      amt.addEventListener("input", updateCalc);
+      months.addEventListener("input", updateCalc);
+      rate.addEventListener("input", updateCalc);
+      updateCalc();
+
+      // ---------- Live Gold & Silver Prices ----------
+      // 🔑 Replace this with your real MetalPriceAPI key (from metalpriceapi.com)
+      const METAL_API_KEY = "PASTE_YOUR_REAL_KEY_HERE";
+
+      async function loadMetalPrices() {
+        const goldEl = document.getElementById("gold-price");
+        const silverEl = document.getElementById("silver-price");
+
+        if (!goldEl || !silverEl) return;
+
+        if (
+          !METAL_API_KEY ||
+          METAL_API_KEY === "PASTE_YOUR_REAL_KEY_HERE"
+        ) {
+          goldEl.textContent = "Set API key";
+          silverEl.textContent = "Set API key";
+          return;
+        }
+
+        try {
+          const url =
+            "https://api.metalpriceapi.com/v1/latest" +
+            "?api_key=" +
+            encodeURIComponent(METAL_API_KEY) +
+            "&base=USD&currencies=XAU,XAG";
+
+          const res = await fetch(url);
+          if (!res.ok) throw new Error("HTTP " + res.status);
+
+          const data = await res.json();
+          const rates = data.rates || {};
+          const xau = rates.XAU;
+          const xag = rates.XAG;
+
+          if (xau) {
+            const goldPrice = 1 / xau;
+            goldEl.textContent = "$" + goldPrice.toFixed(2) + " / oz";
+          } else {
+            goldEl.textContent = "Unavailable";
+          }
+
+          if (xag) {
+            const silverPrice = 1 / xag;
+            silverEl.textContent = "$" + silverPrice.toFixed(2) + " / oz";
+          } else {
+            silverEl.textContent = "Unavailable";
+          }
+        } catch (err) {
+          console.error("Metal price error:", err);
+          goldEl.textContent = "Error";
+          silverEl.textContent = "Error";
+        }
+      }
+
+      loadMetalPrices();
+    </script>
+  </body>
+</html>
