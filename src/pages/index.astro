@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>AmicBridge – A private bridge between borrowers, lenders and business partners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="AmicBridge is a private peer-to-peer network. We review who is entering, how they present themselves, and how they describe what they want to borrow, lend or invest in together.">
+  <meta name="description" content="AmicBridge is a private peer-to-peer network. We review who is entering, how they present themselves, and how they describe what they want to borrow, lend or invest in together – in local currency, foreign currency or crypto, depending on what they agree.">
   <style>
     :root {
       --bg: #f5f5f7;
@@ -16,7 +15,6 @@
       --text-muted: #6b7280;
       --primary: #2563eb;
       --primary-hover: #1d4ed8;
-      --primary-soft: #e0edff;
       --radius-lg: 12px;
       --radius-pill: 999px;
       --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.06);
@@ -275,7 +273,7 @@
       margin-bottom: 1.2rem;
     }
 
-    /* Business investment section */
+    /* Business investment & crypto section */
 
     .card-simple {
       background: #ffffff;
@@ -446,8 +444,8 @@
       <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#how">How it works</a>
-        <a href="#trust">Trust &amp; identity</a>
-        <a href="#business">Business investment</a>
+        <a href="#business">Business &amp; profit sharing</a>
+        <a href="#currencies">Currencies &amp; crypto</a>
         <a href="#contact">Contact</a>
       </nav>
       <div class="nav-cta">
@@ -469,7 +467,8 @@
             AmicBridge is a private peer-to-peer network. Every member goes through identity checks
             before being allowed into the network, and every request is collected in a clear, structured way.
             Our role is to be the trusted bridge: we review who is entering, how they present themselves,
-            and how they describe what they want to borrow, lend, or invest in together.
+            and how they describe what they want to borrow, lend, or invest in together – whether that is in
+            local currency, another currency, or crypto, depending on what both sides agree and what local law allows.
           </p>
 
           <div class="hero-actions">
@@ -486,21 +485,22 @@
 
           <p class="hero-footnote">
             AmicBridge never holds funds or crypto, never signs loan or investment contracts, and never guarantees
-            repayment, returns or matches. All agreements and transfers happen directly between members, who must
-            make their own decisions and assessments.
+            repayment, returns or matches. All agreements and transfers – whether in bank money or crypto – happen
+            directly between members, who must make their own decisions, assessments and compliance checks.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- How it works (simple placeholder) -->
+    <!-- How it works -->
     <section class="section" id="how">
       <div class="shell">
         <h2 class="section-title">How it works</h2>
         <p class="section-text">
           In a full version of AmicBridge, members would complete identity checks, describe what they want to borrow,
           lend or raise for a business, and then connect privately to discuss terms. AmicBridge structures that
-          information, but the actual agreements remain between the members themselves.
+          information, but the actual agreements and money movements (bank transfers or crypto transactions)
+          remain between the members themselves.
         </p>
       </div>
     </section>
@@ -527,7 +527,33 @@
           </ul>
           <p style="margin-top:0.5rem;">
             AmicBridge helps you find each other, present your project in a structured way, and keep a record of who
-            you spoke to and what was discussed. It does <strong>not</strong> guarantee returns or provide legal or investment advice.
+            you spoke to and what was discussed. It does <strong>not</strong> guarantee returns or provide legal, tax or investment advice.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Currencies & Crypto -->
+    <section class="section" id="currencies">
+      <div class="shell">
+        <h2 class="section-title">Different currencies and crypto, chosen by members.</h2>
+        <p class="section-text">
+          Members of AmicBridge may decide to settle their agreements in different ways: local currency, another
+          national currency, or crypto assets such as Bitcoin or stablecoins – as long as it is legal where they live
+          and both sides understand the risk.
+        </p>
+
+        <div class="card-simple">
+          <h3>How AmicBridge treats currencies and crypto</h3>
+          <ul>
+            <li>The platform itself never holds money or crypto and never takes custody of wallets or keys.</li>
+            <li>Members can specify which currency (or crypto) they want to use when they describe their request or offer.</li>
+            <li>Repayments or profit sharing then happen directly between members, using bank transfers or crypto transfers.</li>
+            <li>Each member is responsible for following local laws, tax rules and any crypto regulations in their country.</li>
+          </ul>
+          <p style="margin-top:0.5rem;">
+            AmicBridge is about <strong>information and structure</strong>, not about moving or storing funds.
+            Think of it as a private “match and document” layer that sits above whatever payment rails you both prefer.
           </p>
         </div>
       </div>
@@ -539,7 +565,7 @@
         <h2 class="section-title">Send a request about borrowing, lending or business investment.</h2>
         <p class="section-text">
           Use this form to signal interest in the network – whether you mainly want to borrow,
-          lend, or find partners to invest in a business and share profit together.
+          lend, or find partners to invest in a business and share profit together, in traditional currency or crypto.
         </p>
 
         <div class="contact-grid">
@@ -557,6 +583,12 @@
               </div>
 
               <div class="field">
+                <label for="currency">Preferred currency or crypto</label>
+                <input id="currency" name="currency" type="text" placeholder="e.g. EUR, NOK, USD, BTC, USDT" />
+                <small>This is just for information. Real transfers would happen directly between you and the other member.</small>
+              </div>
+
+              <div class="field">
                 <label for="name">Name</label>
                 <input id="name" name="name" type="text" placeholder="Your full name" required />
               </div>
@@ -568,13 +600,13 @@
 
               <div class="field">
                 <label for="message">Short description</label>
-                <textarea id="message" name="message" rows="4" placeholder="Describe briefly what you want to do – borrow, lend, or raise investment and share profit." required></textarea>
+                <textarea id="message" name="message" rows="4" placeholder="Describe briefly what you want to do – borrow, lend, or raise investment and share profit, and how you imagine using currency or crypto." required></textarea>
                 <small>This example form does not create an account, offer, contract or any promise of funding.</small>
               </div>
 
               <button class="btn-primary" type="submit">Send request</button>
               <div class="form-note">
-                Please do not include sensitive personal data (full ID numbers, passwords, etc.) in this message.
+                Please do not include sensitive personal data (full ID numbers, private keys, seed phrases, passwords, etc.) in this message.
               </div>
 
               <div class="form-success" id="form-success">
@@ -585,14 +617,19 @@
           </div>
 
           <div class="side-note">
-            <strong>What AmicBridge does in all three cases.</strong>
+            <strong>What AmicBridge does in all cases.</strong>
             <p>
               Whether you need a simple personal loan, want to lend to someone you trust, or want a partner for a business,
-              the idea is the same: make it easier to find each other and talk with clear, structured information.
+              the idea is the same: make it easier to find each other and talk with clear, structured information –
+              including what currency or crypto you prefer to use.
             </p>
             <p style="margin-top:0.6rem;">
               AmicBridge itself does not sit in the middle of contracts or money flows. Members stay in control, agree on
-              their own terms, and should always get professional legal and financial advice before committing to anything.
+              their own terms, and should always get professional legal, financial and (for crypto) regulatory advice before committing.
+            </p>
+            <p style="margin-top:0.8rem;">
+              <strong>Contact the founder &amp; CEO</strong><br>
+              Habbitx &mdash; <a href="mailto:robertamicolsen@gmail.com">robertamicolsen@gmail.com</a>
             </p>
           </div>
         </div>
@@ -603,7 +640,12 @@
   <!-- Footer -->
   <footer>
     <div class="shell footer-inner">
-      <div>© <span id="year"></span> AmicBridge. All rights reserved.</div>
+      <div>
+        © <span id="year"></span> AmicBridge. All rights reserved.
+        &nbsp;|&nbsp;
+        CEO: Habbitx &mdash;
+        <a href="mailto:robertamicolsen@gmail.com">robertamicolsen@gmail.com</a>
+      </div>
       <div>
         <a href="#terms">Terms</a> · <a href="#privacy">Privacy</a>
       </div>
@@ -654,7 +696,7 @@
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     success.classList.add("visible");
-    // Here you would send the data to your backend in a real deployment.
+    // In a real deployment, send form data to your backend here.
   });
 </script>
 </body>
