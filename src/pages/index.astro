@@ -1,32 +1,29 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Amicbridge – The Private Network for Lending & Borrowing Money</title>
+  <title>Amicbridge – Halal P2P Qard Hasan & Partnership Network</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Amicbridge is a private, vetted network that connects people who want to lend and borrow money in a structured, transparent way.">
+  <meta name="description" content="Amicbridge is a private, Shariah-aligned network for Qard Hasan (interest-free) loans and fair profit-sharing partnerships. No riba, no haram sectors, clear documentation and shared responsibility.">
   <style>
     :root {
       --bg: #020617;
-      --bg-alt: #020617;
-      --surface: #020617;
-      --surface-soft: rgba(15,23,42,0.9);
-      --accent: #2563eb;
-      --accent-alt: #4f46e5;
-      --accent-soft: rgba(37,99,235,0.15);
-      --accent-soft-2: rgba(37,99,235,0.25);
-      --border-subtle: rgba(30,64,175,0.4);
-      --border-strong: rgba(37,99,235,0.85);
+      --accent: #22c55e;
+      --accent-alt: #16a34a;
+      --accent-soft: rgba(34, 197, 94, 0.16);
+      --accent-soft-strong: rgba(34, 197, 94, 0.22);
+      --border-subtle: rgba(30, 64, 175, 0.4);
+      --border-strong: rgba(34, 197, 94, 0.9);
       --text: #e5e7eb;
       --muted: #9ca3af;
       --muted-2: #6b7280;
-      --danger: #ef4444;
-      --shadow-hero: 0 25px 60px rgba(0,0,0,0.6);
-      --shadow-card: 0 18px 50px rgba(15,23,42,0.9);
-      --radius-md: 15px;
+      --shadow-hero: 0 24px 70px rgba(15, 23, 42, 0.95);
+      --shadow-card: 0 18px 55px rgba(15, 23, 42, 0.96);
+      --radius-md: 16px;
       --radius-lg: 22px;
       --radius-xl: 28px;
-      --max-width: 1120px;
+      --max-width: 1180px;
     }
 
     * {
@@ -38,9 +35,9 @@
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(37,99,235,0.25), transparent 55%),
-        radial-gradient(circle at 80% 0, rgba(236,72,153,0.2), transparent 50%),
-        radial-gradient(circle at bottom right, rgba(56,189,248,0.15), transparent 55%),
+        radial-gradient(circle at top left, rgba(30, 64, 175, 0.24), transparent 60%),
+        radial-gradient(circle at 80% 0, rgba(22, 163, 74, 0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(37, 99, 235, 0.14), transparent 55%),
         var(--bg);
       color: var(--text);
       -webkit-font-smoothing: antialiased;
@@ -72,8 +69,33 @@
       top: 0;
       z-index: 30;
       backdrop-filter: blur(18px);
-      background: linear-gradient(to bottom, rgba(2,6,23,0.95), rgba(2,6,23,0.82), transparent);
-      border-bottom: 1px solid rgba(15,23,42,0.9);
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.97), rgba(15, 23, 42, 0.9), transparent);
+      border-bottom: 1px solid rgba(15, 23, 42, 1);
+    }
+
+    .top-banner {
+      background: rgba(22, 163, 74, 0.16);
+      border-bottom: 1px solid rgba(34, 197, 94, 0.4);
+      font-size: 0.78rem;
+      color: #bbf7d0;
+    }
+
+    .top-banner-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.35rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .top-banner strong {
+      font-weight: 600;
+    }
+
+    .top-banner span {
+      color: #dcfce7;
     }
 
     .nav {
@@ -86,22 +108,22 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 0.65rem;
+      gap: 0.7rem;
     }
 
     .logo-icon {
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       border-radius: 999px;
       background:
-        radial-gradient(circle at 30% 0, #bfdbfe 0, #60a5fa 35%, #2563eb 60%, #1d4ed8 85%);
+        radial-gradient(circle at 30% 0, #ecfdf5 0, #bbf7d0 32%, #4ade80 60%, #15803d 92%);
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 700;
-      font-size: 0.8rem;
-      color: #e5e7eb;
-      box-shadow: 0 16px 40px rgba(37,99,235,0.9);
+      font-size: 0.9rem;
+      color: #064e3b;
+      box-shadow: 0 16px 36px rgba(22, 163, 74, 0.9);
     }
 
     .logo-text {
@@ -112,38 +134,38 @@
 
     .logo-text-main {
       text-transform: uppercase;
-      letter-spacing: 0.11em;
+      letter-spacing: 0.12em;
       font-size: 0.9rem;
       font-weight: 700;
     }
 
     .logo-text-sub {
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       color: var(--muted-2);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 1.6rem;
+      gap: 1.7rem;
       font-size: 0.9rem;
       color: var(--muted);
     }
 
     .nav-links a {
       position: relative;
-      padding-bottom: 0.15rem;
+      padding-bottom: 0.18rem;
     }
 
     .nav-links a::after {
       content: "";
       position: absolute;
       left: 0;
-      bottom: -0.15rem;
+      bottom: -0.14rem;
       width: 0;
       height: 2px;
       border-radius: 999px;
-      background: linear-gradient(to right, #60a5fa, #a855f7);
+      background: linear-gradient(to right, #4ade80, #22c55e);
       transition: width 0.18s ease-out;
     }
 
@@ -161,7 +183,7 @@
       appearance: none;
       border: none;
       outline: none;
-      padding: 0.55rem 1.3rem;
+      padding: 0.55rem 1.35rem;
       border-radius: 999px;
       font-size: 0.9rem;
       cursor: pointer;
@@ -174,39 +196,39 @@
     }
 
     .btn-outline {
-      border: 1px solid rgba(148,163,184,0.7);
-      background: rgba(15,23,42,0.65);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.65);
       color: var(--muted);
     }
 
     .btn-outline:hover {
       border-color: #e5e7eb;
       color: #e5e7eb;
-      background: rgba(15,23,42,0.95);
+      background: rgba(15, 23, 42, 0.98);
       transform: translateY(-1px);
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      background: linear-gradient(135deg, #22c55e, #15803d);
       color: #e5e7eb;
-      box-shadow: 0 14px 36px rgba(37,99,235,0.85);
+      box-shadow: 0 14px 32px rgba(22, 163, 74, 0.85);
     }
 
     .btn-primary:hover {
-      transform: translateY(-1px) translateZ(0);
-      filter: brightness(1.06);
-      box-shadow: 0 20px 52px rgba(37,99,235,1);
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+      box-shadow: 0 20px 50px rgba(22, 163, 74, 1);
     }
 
     .btn-secondary {
-      background: rgba(15,23,42,0.98);
-      border: 1px solid rgba(51,65,85,0.9);
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid rgba(51, 65, 85, 0.95);
       color: var(--text);
     }
 
     .btn-secondary:hover {
-      border-color: #60a5fa;
-      box-shadow: 0 14px 34px rgba(15,23,42,0.9);
+      border-color: #4ade80;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.95);
       transform: translateY(-1px);
     }
 
@@ -217,34 +239,34 @@
     /* Hero */
 
     .hero {
-      padding: 3.25rem 0 3.5rem;
+      padding: 3.1rem 0 3.4rem;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-      gap: 3.25rem;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 3.1rem;
       align-items: center;
     }
 
     .hero-kicker {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: #93c5fd;
-      margin-bottom: 0.85rem;
+      letter-spacing: 0.22em;
+      color: #bbf7d0;
+      margin-bottom: 0.8rem;
     }
 
     .hero-title {
-      font-size: clamp(2.35rem, 3.2vw + 1.4rem, 3.5rem);
-      line-height: 1.03;
+      font-size: clamp(2.3rem, 3.1vw + 1.3rem, 3.4rem);
+      line-height: 1.04;
       letter-spacing: -0.04em;
       font-weight: 740;
       margin-bottom: 1rem;
     }
 
     .hero-title span {
-      background: linear-gradient(to right, #60a5fa, #a855f7, #ec4899);
+      background: linear-gradient(to right, #4ade80, #22c55e);
       -webkit-background-clip: text;
       color: transparent;
     }
@@ -252,8 +274,8 @@
     .hero-subtitle {
       font-size: 0.98rem;
       color: var(--muted);
-      max-width: 35rem;
-      margin-bottom: 1.65rem;
+      max-width: 34rem;
+      margin-bottom: 1.6rem;
     }
 
     .hero-cta-row {
@@ -261,7 +283,7 @@
       flex-wrap: wrap;
       gap: 0.9rem;
       align-items: center;
-      margin-bottom: 1.3rem;
+      margin-bottom: 1.2rem;
     }
 
     .hero-note {
@@ -273,14 +295,14 @@
     }
 
     .hero-note-icon {
-      width: 18px;
-      height: 18px;
+      width: 19px;
+      height: 19px;
       border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.9);
+      border: 1px solid rgba(148, 163, 184, 0.9);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.7rem;
+      font-size: 0.75rem;
     }
 
     .pill-row {
@@ -292,18 +314,18 @@
     }
 
     .pill {
-      padding: 0.25rem 0.75rem;
+      padding: 0.26rem 0.78rem;
       border-radius: 999px;
-      border: 1px solid rgba(55,65,81,0.8);
-      background: rgba(15,23,42,0.8);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.9);
       color: var(--muted);
     }
 
     .hero-stats {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.8rem;
-      margin-top: 1.8rem;
+      gap: 1.7rem;
+      margin-top: 1.7rem;
       font-size: 0.82rem;
       color: var(--muted);
     }
@@ -311,7 +333,7 @@
     .hero-stat {
       display: flex;
       flex-direction: column;
-      gap: 0.1rem;
+      gap: 0.12rem;
     }
 
     .hero-stat-value {
@@ -329,13 +351,12 @@
 
     .hero-card {
       background:
-        radial-gradient(circle at 0 0, rgba(148,163,184,0.16), transparent 60%),
-        radial-gradient(circle at 100% 0, rgba(96,165,250,0.2), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(236,72,153,0.18), transparent 60%),
-        rgba(15,23,42,0.95);
+        radial-gradient(circle at 0 0, rgba(148, 163, 184, 0.18), transparent 60%),
+        radial-gradient(circle at 100% 0, rgba(34, 197, 94, 0.25), transparent 55%),
+        rgba(15, 23, 42, 0.98);
       border-radius: var(--radius-xl);
       padding: 1.35rem;
-      border: 1px solid rgba(51,65,85,0.9);
+      border: 1px solid rgba(31, 41, 55, 0.98);
       box-shadow: var(--shadow-hero);
       position: relative;
       overflow: hidden;
@@ -345,7 +366,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 0 0, rgba(148,163,184,0.1), transparent 60%);
+      background: radial-gradient(circle at 0 0, rgba(148, 163, 184, 0.08), transparent 60%);
       pointer-events: none;
     }
 
@@ -364,7 +385,7 @@
     }
 
     .card-title {
-      font-size: 0.95rem;
+      font-size: 0.94rem;
       font-weight: 600;
     }
 
@@ -377,25 +398,25 @@
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.2em;
-      color: #bfdbfe;
+      color: #bbf7d0;
       padding: 0.25rem 0.75rem;
       border-radius: 999px;
-      border: 1px dashed rgba(129,140,248,0.9);
-      background: rgba(15,23,42,0.85);
+      border: 1px solid rgba(74, 222, 128, 0.9);
+      background: rgba(15, 23, 42, 0.95);
     }
 
     .match-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 0.75rem;
       font-size: 0.8rem;
     }
 
     .match-col {
-      background: rgba(15,23,42,0.96);
+      background: rgba(15, 23, 42, 0.98);
       border-radius: 18px;
       padding: 0.75rem 0.8rem;
-      border: 1px solid rgba(31,41,55,0.95);
+      border: 1px solid rgba(31, 41, 55, 0.98);
     }
 
     .match-label {
@@ -423,16 +444,16 @@
       font-size: 0.68rem;
       padding: 0.22rem 0.6rem;
       border-radius: 999px;
-      background: rgba(22,163,74,0.14);
-      border: 1px solid rgba(34,197,94,0.8);
+      background: rgba(22, 163, 74, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.9);
       color: #bbf7d0;
       margin-top: 0.35rem;
     }
 
-    .match-chip.red {
-      background: rgba(220,38,38,0.13);
-      border-color: rgba(248,113,113,0.9);
-      color: #fecaca;
+    .match-chip.orange {
+      background: rgba(234, 179, 8, 0.13);
+      border-color: rgba(234, 179, 8, 0.9);
+      color: #facc15;
     }
 
     .risk-row {
@@ -452,8 +473,8 @@
       flex: 1;
       height: 8px;
       border-radius: 999px;
-      background: rgba(15,23,42,0.95);
-      border: 1px solid rgba(31,41,55,0.95);
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid rgba(31, 41, 55, 0.98);
       overflow: hidden;
       position: relative;
     }
@@ -461,9 +482,9 @@
     .risk-fill {
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, #22c55e 0, #eab308 52%, #ef4444 100%);
+      background: linear-gradient(90deg, #22c55e 0, #eab308 52%, #991b1b 100%);
       transform-origin: left;
-      transform: scaleX(0.44);
+      transform: scaleX(0.4);
     }
 
     .trust-row {
@@ -484,12 +505,12 @@
       width: 6px;
       height: 6px;
       border-radius: 999px;
-      background: rgba(148,163,184,0.7);
+      background: rgba(148, 163, 184, 0.7);
     }
 
     .dot.active {
-      background: #60a5fa;
-      box-shadow: 0 0 0 4px rgba(37,99,235,0.4);
+      background: #4ade80;
+      box-shadow: 0 0 0 4px rgba(74, 222, 128, 0.4);
     }
 
     .hero-footnote {
@@ -498,14 +519,14 @@
       margin-top: 0.3rem;
     }
 
-    /* Trust bar */
+    /* Trust strip */
 
     .trust-bar {
-      padding: 0.9rem 1.1rem;
-      margin-top: 1.3rem;
+      padding: 0.85rem 1.1rem;
+      margin-top: 1.25rem;
       border-radius: 999px;
-      border: 1px solid rgba(31,41,55,0.9);
-      background: linear-gradient(to right, rgba(15,23,42,0.92), rgba(15,23,42,0.7));
+      border: 1px solid rgba(31, 41, 55, 1);
+      background: linear-gradient(to right, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.85));
       display: flex;
       flex-wrap: wrap;
       gap: 1.1rem;
@@ -517,7 +538,7 @@
     .trust-label-main {
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.42rem;
     }
 
     .trust-dot-main {
@@ -525,7 +546,7 @@
       height: 8px;
       border-radius: 999px;
       background: #22c55e;
-      box-shadow: 0 0 0 6px rgba(34,197,94,0.28);
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.27);
     }
 
     .trust-items {
@@ -535,7 +556,7 @@
     }
 
     .trust-item-label {
-      color: #d1d5db;
+      color: #e5e7eb;
       font-weight: 500;
     }
 
@@ -548,7 +569,7 @@
 
     section {
       padding: 2.6rem 0;
-      border-top: 1px solid rgba(15,23,42,0.9);
+      border-top: 1px solid rgba(15, 23, 42, 1);
     }
 
     .section-header {
@@ -578,30 +599,30 @@
 
     .steps-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0,1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 1rem;
       font-size: 0.88rem;
     }
 
     .step {
-      background: rgba(15,23,42,0.95);
+      background: rgba(15, 23, 42, 0.98);
       border-radius: var(--radius-md);
-      border: 1px solid rgba(31,41,55,0.95);
+      border: 1px solid rgba(31, 41, 55, 1);
       padding: 1rem;
       box-shadow: var(--shadow-card);
     }
 
     .step-num {
-      width: 26px;
-      height: 26px;
+      width: 25px;
+      height: 25px;
       border-radius: 999px;
-      background: rgba(37,99,235,0.18);
-      border: 1px solid rgba(59,130,246,0.9);
+      background: rgba(34, 197, 94, 0.18);
+      border: 1px solid rgba(34, 197, 94, 0.9);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 0.78rem;
-      color: #bfdbfe;
+      color: #bbf7d0;
       margin-bottom: 0.6rem;
     }
 
@@ -624,10 +645,10 @@
     }
 
     .card {
-      background: rgba(15,23,42,0.97);
+      background: rgba(15, 23, 42, 0.98);
       border-radius: var(--radius-lg);
       padding: 1.25rem;
-      border: 1px solid rgba(31,41,55,0.95);
+      border: 1px solid rgba(31, 41, 55, 1);
       box-shadow: var(--shadow-card);
     }
 
@@ -659,9 +680,9 @@
 
     .bullet-list li::before {
       content: "•";
-      color: #60a5fa;
+      color: #4ade80;
       font-size: 0.8rem;
-      margin-top: 0.1rem;
+      margin-top: 0.12rem;
     }
 
     .pill-strip {
@@ -675,27 +696,55 @@
     .pill-soft {
       padding: 0.26rem 0.78rem;
       border-radius: 999px;
-      background: rgba(37,99,235,0.1);
-      border: 1px solid rgba(37,99,235,0.45);
-      color: #bfdbfe;
+      background: rgba(34, 197, 94, 0.13);
+      border: 1px solid rgba(34, 197, 94, 0.55);
+      color: #bbf7d0;
+    }
+
+    /* Compliance strip */
+
+    .compliance-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+      font-size: 0.82rem;
+    }
+
+    .compliance-item {
+      background: rgba(15, 23, 42, 0.98);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(31, 41, 55, 1);
+      padding: 0.9rem;
+    }
+
+    .compliance-label {
+      font-size: 0.8rem;
+      font-weight: 550;
+      margin-bottom: 0.25rem;
+    }
+
+    .compliance-text {
+      font-size: 0.8rem;
+      color: var(--muted);
     }
 
     /* Testimonials */
 
     .testimonials {
-      background: radial-gradient(circle at 0 0, rgba(37,99,235,0.2), transparent 55%), rgba(15,23,42,0.98);
+      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.9), transparent 55%), rgba(15, 23, 42, 1);
     }
 
     .test-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1rem;
     }
 
     .test-card {
-      background: rgba(15,23,42,0.95);
+      background: rgba(15, 23, 42, 0.98);
       border-radius: var(--radius-md);
-      border: 1px solid rgba(31,41,55,0.95);
+      border: 1px solid rgba(31, 41, 55, 1);
       padding: 1rem;
       font-size: 0.86rem;
       color: var(--muted);
@@ -728,14 +777,14 @@
 
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.3rem;
     }
 
     .price-card {
-      background: rgba(15,23,42,0.97);
+      background: rgba(15, 23, 42, 0.98);
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(55,65,81,0.95);
+      border: 1px solid rgba(55, 65, 81, 1);
       padding: 1.25rem;
       position: relative;
       overflow: hidden;
@@ -744,15 +793,15 @@
 
     .price-card.highlight {
       border-color: var(--border-strong);
-      box-shadow: 0 22px 65px rgba(37,99,235,0.9);
+      box-shadow: 0 22px 65px rgba(34, 197, 94, 0.95);
     }
 
     .price-card.highlight::before {
       content: "";
       position: absolute;
       inset: -120px;
-      background: radial-gradient(circle at top right, rgba(59,130,246,0.38), transparent 60%);
-      opacity: 0.8;
+      background: radial-gradient(circle at top right, rgba(34, 197, 94, 0.3), transparent 60%);
+      opacity: 0.9;
       pointer-events: none;
     }
 
@@ -765,13 +814,13 @@
       font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.2em;
-      color: #a5b4fc;
+      color: #bbf7d0;
       padding: 0.24rem 0.7rem;
       border-radius: 999px;
-      border: 1px solid rgba(129,140,248,0.8);
+      border: 1px solid rgba(74, 222, 128, 0.9);
       display: inline-block;
       margin-bottom: 0.55rem;
-      background: rgba(15,23,42,0.88);
+      background: rgba(15, 23, 42, 0.96);
     }
 
     .price-tag {
@@ -823,14 +872,14 @@
 
     .faq-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.05rem;
       font-size: 0.87rem;
     }
 
     .faq-item {
       padding: 0.75rem 0;
-      border-bottom: 1px solid rgba(31,41,55,0.9);
+      border-bottom: 1px solid rgba(31, 41, 55, 1);
     }
 
     .faq-q {
@@ -851,9 +900,9 @@
     }
 
     .contact-card {
-      background: rgba(15,23,42,0.97);
+      background: rgba(15, 23, 42, 0.98);
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(31,41,55,0.95);
+      border: 1px solid rgba(31, 41, 55, 1);
       padding: 1.2rem;
       box-shadow: var(--shadow-card);
     }
@@ -883,9 +932,9 @@
 
     .field input,
     .field textarea {
-      background: rgba(15,23,42,0.95);
+      background: rgba(15, 23, 42, 1);
       border-radius: 12px;
-      border: 1px solid rgba(31,41,55,0.95);
+      border: 1px solid rgba(31, 41, 55, 1);
       padding: 0.6rem 0.7rem;
       color: var(--text);
       font-family: inherit;
@@ -897,8 +946,8 @@
     .field input:focus,
     .field textarea:focus {
       outline: none;
-      border-color: #60a5fa;
-      box-shadow: 0 0 0 1px rgba(37,99,235,0.7);
+      border-color: #4ade80;
+      box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.7);
     }
 
     .field small {
@@ -906,14 +955,54 @@
       color: var(--muted-2);
     }
 
+    .contact-steps {
+      margin-top: 0.8rem;
+      border-radius: 14px;
+      padding: 0.75rem 0.9rem;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(31, 41, 55, 1);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .contact-steps strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: #e5e7eb;
+    }
+
+    .contact-steps ol {
+      padding-left: 1.15rem;
+      margin: 0.25rem 0 0;
+    }
+
+    .contact-steps li {
+      margin-bottom: 0.15rem;
+    }
+
+    .form-success {
+      display: none;
+      margin-top: 0.7rem;
+      padding: 0.7rem 0.9rem;
+      border-radius: 12px;
+      border: 1px solid rgba(34, 197, 94, 0.8);
+      background: rgba(22, 163, 74, 0.12);
+      color: #bbf7d0;
+      font-size: 0.8rem;
+    }
+
+    .form-success.visible {
+      display: block;
+    }
+
     /* Footer */
 
     footer {
-      border-top: 1px solid rgba(15,23,42,0.95);
+      border-top: 1px solid rgba(15, 23, 42, 1);
       padding: 1.7rem 0 2.2rem;
       font-size: 0.8rem;
       color: var(--muted);
-      background: radial-gradient(circle at top, rgba(37,99,235,0.15), transparent 60%);
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.8), transparent 60%);
     }
 
     .footer-row {
@@ -951,6 +1040,12 @@
       color: var(--muted-2);
     }
 
+    .footer-company {
+      font-size: 0.78rem;
+      color: var(--muted-2);
+      margin-top: 0.2rem;
+    }
+
     /* Responsive */
 
     @media (max-width: 900px) {
@@ -960,20 +1055,19 @@
       .test-grid,
       .pricing-grid,
       .faq-grid,
-      .contact-grid {
-        grid-template-columns: minmax(0,1fr);
+      .contact-grid,
+      .compliance-strip {
+        grid-template-columns: minmax(0, 1fr);
       }
 
       .hero {
-        padding-top: 2.5rem;
+        padding-top: 2.4rem;
       }
 
       .hero-card {
         margin-top: 0.7rem;
       }
-    }
 
-    @media (max-width: 780px) {
       .trust-bar {
         border-radius: 18px;
       }
@@ -992,6 +1086,11 @@
         flex-direction: column;
         align-items: stretch;
       }
+
+      .top-banner-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
 
     @media (max-width: 640px) {
@@ -1004,23 +1103,32 @@
 <body>
 <div class="page">
   <header>
+    <div class="top-banner">
+      <div class="top-banner-inner">
+        <div>
+          <strong>Early-stage concept.</strong>
+          <span>Designed for Muslims who want Qard Hasan and halal partnerships with clear documentation.</span>
+        </div>
+      </div>
+    </div>
     <div class="shell nav" aria-label="Main navigation">
       <a href="#" class="logo">
         <div class="logo-icon">AB</div>
         <div class="logo-text">
           <div class="logo-text-main">Amicbridge</div>
-          <div class="logo-text-sub">Network for responsible lending</div>
+          <div class="logo-text-sub">Halal P2P Qard Hasan & partnerships</div>
         </div>
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="#how">How it works</a>
-        <a href="#safety">Safety</a>
-        <a href="#pricing">Pricing</a>
+        <a href="#safety">Shariah basis</a>
+        <a href="#pricing">Membership</a>
+        <a href="#compliance">Principles</a>
         <a href="#faq">FAQ</a>
       </nav>
       <div class="nav-cta">
         <button class="btn btn-outline" type="button">Log in</button>
-        <button class="btn btn-primary" type="button">Apply to join</button>
+        <button class="btn btn-primary" type="button" id="btn-apply-nav">Apply to join</button>
       </div>
     </div>
   </header>
@@ -1030,81 +1138,84 @@
     <section class="hero" aria-labelledby="hero-heading">
       <div class="shell hero-grid">
         <div>
-          <p class="hero-kicker">Private network • Real people • Real responsibility</p>
+          <p class="hero-kicker">No riba • No haram sectors • Shared responsibility</p>
           <h1 id="hero-heading" class="hero-title">
-            A trusted bridge between people who <span>lend</span> and people who <span>borrow</span>.
+            A private halal network for <span>Qard Hasan</span> and <span>fair partnerships</span>.
           </h1>
           <p class="hero-subtitle">
-            Amicbridge is a membership-based network for individuals who want a structured, transparent way to lend
-            and borrow money with other verified people. No public listings, no auctions – just curated matches and clear terms.
+            Amicbridge connects Muslims who want to help each other with interest-free loans and profit-sharing partnerships.
+            No riba, no speculative games – just clear contracts, written schedules and a traceable history between real people.
           </p>
 
           <div class="hero-cta-row">
-            <button class="btn btn-primary" type="button" id="btn-borrow-hero">Request to borrow</button>
-            <button class="btn btn-secondary" type="button" id="btn-lend-hero">Apply as a lender</button>
+            <button class="btn btn-primary" type="button" id="btn-qard-hero">Request a Qard Hasan loan</button>
+            <button class="btn btn-secondary" type="button" id="btn-partner-hero">Explore partnership funding</button>
           </div>
 
           <div class="hero-note" aria-label="Security information">
-            <span class="hero-note-icon">🔒</span>
-            <span>Identity checks, written digital agreements, and a full history of payments inside the platform.</span>
+            <span class="hero-note-icon">🕋</span>
+            <span>
+              No interest, no funding of haram activities. Agreements are based on Qard Hasan, Musharaka or Mudaraba,
+              with clear documentation and shared awareness of risk.
+            </span>
           </div>
 
           <div class="pill-row" aria-hidden="true">
-            <div class="pill">Invitation-only network</div>
-            <div class="pill">Structured loan agreements</div>
-            <div class="pill">Private, not public</div>
+            <div class="pill">Interest-free (Qard Hasan)</div>
+            <div class="pill">Profit-sharing partnerships</div>
+            <div class="pill">No alcohol, gambling or riba sectors</div>
           </div>
 
-          <div class="hero-stats" aria-label="Illustrative statistics">
+          <div class="hero-stats" aria-label="Illustrative characteristics">
             <div class="hero-stat">
-              <span class="hero-stat-value">92%</span>
-              <span class="hero-stat-label">of live loans paid on time*</span>
+              <span class="hero-stat-value">Qard Hasan</span>
+              <span class="hero-stat-label">Loans repaid with no extra amount</span>
             </div>
             <div class="hero-stat">
-              <span class="hero-stat-value">NOK 50 000</span>
-              <span class="hero-stat-label">Typical loan size in network</span>
+              <span class="hero-stat-value">Musharaka / Mudaraba</span>
+              <span class="hero-stat-label">Shared profit and shared risk</span>
             </div>
             <div class="hero-stat">
-              <span class="hero-stat-value">24 months</span>
-              <span class="hero-stat-label">Typical repayment horizon</span>
+              <span class="hero-stat-value">Documented</span>
+              <span class="hero-stat-label">All terms written and stored</span>
             </div>
           </div>
         </div>
 
-        <aside class="hero-card" aria-label="Illustration of a loan match">
+        <aside class="hero-card" aria-label="Illustration of a halal relationship">
           <div class="card-inner">
             <div class="card-header">
               <div>
-                <div class="card-title">Example match inside Amicbridge</div>
-                <div class="card-sub">Illustration only – not a live offer.</div>
+                <div class="card-title">Example inside Amicbridge (halal structure)</div>
+                <div class="card-sub">For illustration only – not a live offer or fatwa.</div>
               </div>
-              <div class="card-badge">Curated network</div>
+              <div class="card-badge">No riba • Clear terms</div>
             </div>
 
             <div class="match-grid">
               <div class="match-col">
-                <div class="match-label">Borrower</div>
-                <div class="match-name">“Sara” • Member since 2024</div>
-                <div class="match-meta">Requests NOK 80 000 • 24 months</div>
-                <div class="match-chip red">Clear purpose • Signed contract</div>
+                <div class="match-label">Qard Hasan loan</div>
+                <div class="match-name">“Yusuf” receives 20 000 NOK</div>
+                <div class="match-meta">Repays in 10 monthly instalments of 2 000 NOK</div>
+                <div class="match-chip">Principal only • No increase</div>
               </div>
               <div class="match-col">
-                <div class="match-label">Lender</div>
-                <div class="match-name">“Henrik” • Verified lender</div>
-                <div class="match-meta">Expected return 7.2% p.a.</div>
-                <div class="match-chip">Diversified • 14 active loans</div>
+                <div class="match-label">Musharaka partnership</div>
+                <div class="match-name">“Amina” invests in halal café</div>
+                <div class="match-meta">Profit shared: 60% investor • 40% operator</div>
+                <div class="match-chip orange">No fixed return • Shared risk</div>
               </div>
             </div>
 
             <div class="risk-row">
-              <span class="risk-label">Risk / reward profile (example)</span>
+              <span class="risk-label">Reminder: capital can be lost in real life.</span>
               <div class="risk-meter" aria-hidden="true">
                 <div class="risk-fill"></div>
               </div>
             </div>
 
             <div class="trust-row">
-              <span>Agreement, payment history and messages are logged for both sides.</span>
+              <span>Contracts, repayment history and messages are recorded for both sides.</span>
               <div class="trust-dots" aria-hidden="true">
                 <div class="dot active"></div>
                 <div class="dot active"></div>
@@ -1113,30 +1224,31 @@
             </div>
 
             <p class="hero-footnote">
-              *Numbers are for illustration only. Lending and borrowing money always involves risk and potential loss.
+              This is a conceptual example. Shariah compliance depends on real contracts and review by qualified scholars.
+              Amicbridge does not give personal religious rulings (fatwa).
             </p>
           </div>
         </aside>
       </div>
 
       <div class="shell">
-        <div class="trust-bar" aria-label="Trust and coverage">
+        <div class="trust-bar" aria-label="Trust foundations">
           <div class="trust-label-main">
             <span class="trust-dot-main"></span>
-            <span style="font-weight:500;color:#e5e7eb;">Built for people who treat money seriously.</span>
+            <span style="font-weight:500;color:#e5e7eb;">Built around Islamic principles of fairness, trust and accountability.</span>
           </div>
           <div class="trust-items">
             <div>
-              <div class="trust-item-label">Verified members only</div>
-              <div class="trust-item-sub">No anonymous profiles or public bidding.</div>
+              <div class="trust-item-label">No riba</div>
+              <div class="trust-item-sub">No interest-bearing personal loans, no fixed guaranteed returns.</div>
             </div>
             <div>
-              <div class="trust-item-label">Documented agreements</div>
-              <div class="trust-item-sub">Digital contracts and clear payment schedules.</div>
+              <div class="trust-item-label">No haram sectors</div>
+              <div class="trust-item-sub">Borrowed funds and partnerships must avoid clearly prohibited activities.</div>
             </div>
             <div>
-              <div class="trust-item-label">Transparent history</div>
-              <div class="trust-item-sub">Shared view of payments, messages and terms.</div>
+              <div class="trust-item-label">Written contracts</div>
+              <div class="trust-item-sub">Clear documentation, shared history and transparent expectations.</div>
             </div>
           </div>
         </div>
@@ -1148,93 +1260,131 @@
       <div class="shell">
         <div class="section-header">
           <div class="section-label">How it works</div>
-          <h2 class="section-title">From “I know someone” to a structured loan between adults.</h2>
+          <h2 class="section-title">From informal “trust me” to structured halal agreements.</h2>
           <p class="section-text">
-            Amicbridge gives structure to something that usually happens informally. We keep the human connection,
-            but add verification, documentation and a clear process on top.
+            Many Muslims already lend and support each other, but often without a written record or clear plan. Amicbridge keeps the spirit of helping (ta’awun),
+            while adding structure and documentation so everyone knows their rights and responsibilities.
           </p>
         </div>
 
-        <div class="steps-grid" aria-label="Four main steps">
+        <div class="steps-grid" aria-label="Main steps">
           <div class="step">
             <div class="step-num">1</div>
-            <div class="step-title">Apply and verify</div>
+            <div class="step-title">Apply & verify</div>
             <div class="step-text">
-              Apply as a borrower or lender. We request identity information and basic details to understand who you are and what you want to do.
+              Apply as a borrower, lender or partner. We request identity details and basic information to understand who you are and how you plan to use the platform.
             </div>
           </div>
           <div class="step">
             <div class="step-num">2</div>
-            <div class="step-title">Set your boundaries</div>
+            <div class="step-title">Choose Qard Hasan or partnership</div>
             <div class="step-text">
-              Define amounts, time frames, risk appetite and what you are comfortable with. You always stay in control of your own limits.
+              For personal needs, use Qard Hasan (interest-free loan). For business activity, use Musharaka or Mudaraba style agreements with profit and risk sharing.
             </div>
           </div>
           <div class="step">
             <div class="step-num">3</div>
-            <div class="step-title">Get curated matches</div>
+            <div class="step-title">Define clear terms</div>
             <div class="step-text">
-              Inside the private network, we suggest potential matches based on your profile. Both sides can review terms before saying yes.
+              Amount, schedule, purpose and allocation of profit or loss are written down. No hidden clauses, no guaranteed increase on loans.
             </div>
           </div>
           <div class="step">
             <div class="step-num">4</div>
             <div class="step-title">Sign & follow the plan</div>
             <div class="step-text">
-              You sign a digital agreement and follow a clear payment schedule. Every payment and message is recorded in one place.
+              Both sides agree digitally and follow the schedule. Payments and messages are logged so you always know what has been done and what remains.
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Safety -->
+    <!-- Safety & Shariah basis -->
     <section id="safety">
       <div class="shell two-col">
         <div>
           <div class="section-header">
-            <div class="section-label">Safety & clarity</div>
-            <h2 class="section-title">We are not a bank. We are the structure between people.</h2>
+            <div class="section-label">Shariah basis</div>
+            <h2 class="section-title">A platform shaped by Islamic finance principles.</h2>
             <p class="section-text">
-              Amicbridge never touches your money like a traditional bank. Instead, we provide the network, tools and documentation that help two adults
-              make and follow a clear agreement with each other.
+              Amicbridge is not a bank and not a conventional investment app. It is a private, digital tool that helps Muslims arrange Qard Hasan and partnership-based funding
+              in a way that avoids riba and respects shared risk.
             </p>
           </div>
 
           <article class="card">
             <h3>What Amicbridge does</h3>
             <ul class="bullet-list">
-              <li>Performs identity checks on all members before they are allowed into the network.</li>
-              <li>Helps you define and document the key terms of each loan: amount, interest, schedule and consequences of delay.</li>
-              <li>Provides a shared digital space where both sides can see the agreement, payment history and communication.</li>
-              <li>Uses encrypted connections and access control to protect account information.</li>
+              <li>Supports Qard Hasan (interest-free loans) with written repayment plans and clear responsibilities.</li>
+              <li>Supports Musharaka / Mudaraba style partnerships where profit and loss are shared, not guaranteed.</li>
+              <li>Provides templates and digital space to record agreements, payments and communication.</li>
+              <li>Helps screen out clearly haram sectors (gambling, alcohol, usurious finance and similar).</li>
             </ul>
             <div class="pill-strip">
-              <div class="pill-soft">Identity verification</div>
-              <div class="pill-soft">Digital agreements</div>
-              <div class="pill-soft">Structured communication</div>
+              <div class="pill-soft">No riba</div>
+              <div class="pill-soft">Shared risk and reward</div>
+              <div class="pill-soft">Transparent documentation</div>
             </div>
             <p style="margin-top:0.7rem;font-size:0.8rem;color:var(--muted-2);">
-              Amicbridge does not guarantee returns, repayment or legal outcomes. Lending and borrowing money always carries risk.
-              Members should evaluate each relationship carefully and seek independent advice if needed.
+              Amicbridge does not issue fatwa and does not replace qualified scholars or legal professionals.
+              Each member is responsible for their own situation and should consult scholars and advisors before entering agreements.
             </p>
           </article>
         </div>
 
         <aside class="card">
-          <h3>Why members are willing to pay for access</h3>
+          <h3>How the platform earns (without riba)</h3>
           <p>
-            People do not pay for chaos. They pay for structure, clarity and time saved. Amicbridge replaces long email chains, unclear promises and forgotten agreements with one single view that both sides can trust.
+            The platform does not earn from interest, late fees to lenders or percentages of loan amounts.
+            Instead, it charges for access and tools – similar to paying for software or document services.
           </p>
           <ul class="bullet-list">
-            <li>Borrowers get access to serious lenders with expectations set from the start, not random offers.</li>
-            <li>Lenders see documented purposes, time frames and a full overview instead of vague “I will pay you back soon”.</li>
-            <li>Both sides can always point to the same agreement and the same history if questions appear later.</li>
+            <li>Fixed membership fees – independent of loan size or length.</li>
+            <li>Flat fees for verification and preparation of standard contracts.</li>
+            <li>No profit share from Qard Hasan and no “extra” taken from borrower repayments.</li>
           </ul>
           <p style="margin-top:0.7rem;font-size:0.86rem;color:#e5e7eb;">
-            A paid, closed network keeps out most unserious actors. That is exactly the point.
+            The goal is to keep the business model as simple and clean as possible: payment for service, not payment for time value of money.
           </p>
         </aside>
+      </div>
+    </section>
+
+    <!-- Principles / compliance -->
+    <section id="compliance">
+      <div class="shell">
+        <div class="section-header">
+          <div class="section-label">Principles</div>
+          <h2 class="section-title">Clear about what is allowed – and what is not.</h2>
+          <p class="section-text">
+            A halal platform must have boundaries. Amicbridge is built around a few non-negotiable principles inspired by Islamic finance.
+          </p>
+        </div>
+
+        <div class="compliance-strip">
+          <div class="compliance-item">
+            <div class="compliance-label">No interest (riba)</div>
+            <div class="compliance-text">
+              Amicbridge does not host interest-bearing loans. Qard Hasan loans are repaid at exactly the same amount,
+              and business capital uses profit-sharing models instead of guaranteed returns.
+            </div>
+          </div>
+          <div class="compliance-item">
+            <div class="compliance-label">No clearly haram sectors</div>
+            <div class="compliance-text">
+              Funding requests involving alcohol, gambling, riba-based finance, adult entertainment or other clearly prohibited sectors
+              are not accepted on the platform.
+            </div>
+          </div>
+          <div class="compliance-item">
+            <div class="compliance-label">Shared risk, honest expectations</div>
+            <div class="compliance-text">
+              In partnership models, profit is shared when it exists and capital can be reduced if the project fails.
+              There are no promises of “risk-free income”.
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1242,109 +1392,106 @@
     <section class="testimonials" aria-labelledby="test-heading">
       <div class="shell">
         <div class="section-header">
-          <div class="section-label">Members</div>
-          <h2 id="test-heading" class="section-title">What people value inside the network.</h2>
+          <div class="section-label">Member perspectives</div>
+          <h2 id="test-heading" class="section-title">How a structured halal network can help.</h2>
           <p class="section-text">
-            These are anonymised voices based on how people typically use structured, private lending networks.
-            They are not quotes from live users, but they show the kind of value members expect.
+            These are anonymised, illustrative voices based on how Muslims often talk about informal lending and partnerships.
+            They show the type of benefit Amicbridge is designed to bring.
           </p>
         </div>
 
         <div class="test-grid">
           <article class="test-card">
             <p class="test-quote">
-              “I used to lend money based on messages and trust only. Now, every loan has a clear document and payment plan.
-              It feels more respectful for both sides.”
+              “Instead of long chat messages and vague promises, we now write one Qard Hasan agreement with dates and amounts.
+              It feels more honest and less stressful for both of us.”
             </p>
             <div class="test-person">
-              <span class="test-name">“Anders”</span>
-              <span class="test-role">Private lender</span>
+              <span class="test-name">“Abdullah”</span>
+              <span class="test-role">Helping a friend with Qard Hasan</span>
             </div>
           </article>
           <article class="test-card">
             <p class="test-quote">
-              “Being able to see the full loan schedule and mark payments as completed helps me sleep.
-              I do not like surprises when it comes to money.”
+              “I wanted to support a halal business, but not with interest. Having a clear Musharaka-style contract and regular reports
+              makes it much easier to sleep at night.”
             </p>
             <div class="test-person">
-              <span class="test-name">“Marit”</span>
-              <span class="test-role">Borrower and member</span>
+              <span class="test-name">“Fatima”</span>
+              <span class="test-role">Partnership investor</span>
             </div>
           </article>
           <article class="test-card">
             <p class="test-quote">
-              “The membership fee filters people. I am not interested in lending to someone who is not even willing to pay a small amount for structure.”
+              “The platform is not a fatwa source, but it gives structure that fits what our local scholar has been teaching us for years:
+              no riba, no exploitation, clear agreements.”
             </p>
             <div class="test-person">
-              <span class="test-name">“Erlend”</span>
-              <span class="test-role">Lender</span>
+              <span class="test-name">“Omar”</span>
+              <span class="test-role">Community organiser</span>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Pricing -->
+    <!-- Membership / Pricing -->
     <section id="pricing">
       <div class="shell">
         <div class="section-header">
-          <div class="section-label">Pricing</div>
-          <h2 class="section-title">A paid network designed to keep the noise out.</h2>
+          <div class="section-label">Membership</div>
+          <h2 class="section-title">A paid network to keep the quality high.</h2>
           <p class="section-text">
-            The membership fee exists for two reasons: to fund verification and support, and to make sure the network is used by people
-            who genuinely care about structure and responsibility.
+            Amicbridge charges for tools and access – not for interest and not as a percentage of loans.
+            Membership fees below are conceptual and must be adapted to real-life regulation and costs.
           </p>
         </div>
 
         <div class="pricing-grid">
           <article class="price-card">
             <div class="price-inner">
-              <span class="badge-small">Borrower membership</span>
-              <div class="price-tag">NOK 149 <span>/ month</span></div>
+              <span class="badge-small">Qard Hasan access</span>
+              <div class="price-tag">NOK 99 <span>/ month (example)</span></div>
               <p class="price-copy">
-                For individuals who want access to serious private lenders with clear, written agreements.
+                For members who mainly want to give or receive support through Qard Hasan loans with proper documentation and follow-up.
               </p>
               <ul class="price-list">
-                <li>Create structured loan requests with guidance on key terms.</li>
-                <li>Access to the internal network of verified lenders.</li>
-                <li>Digital agreements with clear schedules and reminders.</li>
-                <li>Overview of what you owe, to whom, and when.</li>
+                <li>Create and sign interest-free Qard Hasan agreements.</li>
+                <li>Schedule repayments and track completion over time.</li>
+                <li>Store communication and updates in one shared place.</li>
+                <li>Tools to prepare documents you can discuss with your scholar or advisor.</li>
               </ul>
-              <button class="btn btn-secondary" style="width:100%;" type="button" id="btn-borrow-pricing">
-                Request to borrow
+              <button class="btn btn-secondary" style="width:100%;" type="button" id="btn-qard-pricing">
+                Request a Qard Hasan loan
               </button>
               <p class="guarantee-text">
-                You can cancel future billing at any time. Existing agreements remain valid until completed.
+                This fee is for access and tools only. It does not increase or decrease based on how much you borrow or lend.
               </p>
             </div>
           </article>
 
           <article class="price-card highlight">
             <div class="price-inner">
-              <span class="badge-small">Lender membership</span>
-              <div class="price-tag">NOK 349 <span>/ month</span></div>
+              <span class="badge-small">Partnership access</span>
+              <div class="price-tag">NOK 199 <span>/ month (example)</span></div>
               <p class="price-copy">
-                For private individuals who want to lend money carefully, with more information and less guesswork.
+                For members who want to engage in halal business partnerships, sharing profit and risk through clear contracts and regular reporting.
               </p>
               <ul class="price-list">
-                <li>Access to curated borrower requests with clear purposes and time frames.</li>
-                <li>Portfolio overview of all active and past loans in the network.</li>
-                <li>Tools for tracking payments and documenting communication.</li>
-                <li>Priority response from our support team for questions and disputes.</li>
+                <li>Templates for Musharaka / Mudaraba style partnership agreements.</li>
+                <li>Tools for recording profit, loss and distributions.</li>
+                <li>Portfolio overview of all active partnership projects.</li>
+                <li>Priority help with documentation issues related to the platform.</li>
               </ul>
-              <button class="btn btn-primary" style="width:100%;" type="button" id="btn-lend-pricing">
-                Apply as a lender
+              <button class="btn btn-primary" style="width:100%;" type="button" id="btn-partner-pricing">
+                Explore partnership funding
               </button>
               <p class="guarantee-text">
-                Amicbridge does not promise returns and does not replace legal or financial advice. It gives you better structure for the decisions you make yourself.
+                Amicbridge does not promise specific returns or outcomes. Capital in real business can grow or be lost.
               </p>
             </div>
           </article>
         </div>
-
-        <p style="margin-top:1rem;font-size:0.8rem;color:var(--muted-2);">
-          All numbers and features on this page are examples. Final pricing, features and legal information must be adjusted to your real business, your location and applicable regulation.
-        </p>
       </div>
     </section>
 
@@ -1355,50 +1502,51 @@
           <div class="section-label">Questions</div>
           <h2 class="section-title">Frequently asked questions.</h2>
           <p class="section-text">
-            Before joining any network that deals with money, you should have clear answers. These are the questions people usually ask first.
+            A halal platform should answer questions directly. Here are some common ones.
           </p>
         </div>
 
         <div class="faq-grid">
           <div class="faq-item">
-            <div class="faq-q">Is Amicbridge a bank or financial advisor?</div>
+            <div class="faq-q">Does Amicbridge allow interest?</div>
             <div class="faq-a">
-              No. Amicbridge is a private network and a digital tool for documentation and structure.
-              We do not hold deposits, guarantee returns or give individual financial advice.
+              No. Amicbridge is designed for Qard Hasan and partnership-based funding only. Personal loans are repaid at the same amount that was given,
+              and business funding uses shared profit and risk instead of fixed returns.
             </div>
           </div>
           <div class="faq-item">
-            <div class="faq-q">What happens if someone does not repay?</div>
+            <div class="faq-q">Is this platform a replacement for fatwa or personal Islamic advice?</div>
             <div class="faq-a">
-              The legal relationship is always between the lender and borrower. Amicbridge provides documentation and history of the agreement,
-              but we are not a debt collection agency. You should consider how you would handle a default before entering any agreement.
+              No. Amicbridge is a technical tool and network, not a fatwa service. We encourage all members to consult qualified scholars
+              about their situations before entering into any agreement.
             </div>
           </div>
           <div class="faq-item">
-            <div class="faq-q">How do you verify members?</div>
+            <div class="faq-q">How does Amicbridge make money if it does not charge interest?</div>
             <div class="faq-a">
-              We request identity information and supporting documentation based on jurisdiction and regulation.
-              Membership is only approved after basic checks. Details may change as rules evolve.
+              The platform earns from membership and service fees, similar to paying for software or documentation tools.
+              Fees are not calculated as a percentage of loan amounts or repayment time.
             </div>
           </div>
           <div class="faq-item">
-            <div class="faq-q">Is my data safe?</div>
+            <div class="faq-q">What happens if someone does not repay a Qard Hasan loan?</div>
             <div class="faq-a">
-              We use encrypted connections, access control and logging to protect accounts. Data usage and retention are described in our Privacy Policy,
-              which you should read carefully once it is published.
+              The legal and ethical responsibility is between lender and borrower. Amicbridge provides records and documentation that can be used in discussion,
+              mediation or legal processes, but it does not act as an enforcement or collection agency.
             </div>
           </div>
           <div class="faq-item">
-            <div class="faq-q">Can I cancel my membership?</div>
+            <div class="faq-q">Can this be used for any kind of business?</div>
             <div class="faq-a">
-              You can cancel future membership payments at any time. Loan agreements you have already entered into remain valid and must be handled as agreed between you and the other party.
+              No. Funding requests and partnerships that clearly involve haram sectors (such as gambling, alcohol or usurious finance) are not permitted.
+              Users are also expected to avoid doubtful matters and consult scholars.
             </div>
           </div>
           <div class="faq-item">
-            <div class="faq-q">Do I need my own lawyer or advisor?</div>
+            <div class="faq-q">Is my capital guaranteed in a partnership?</div>
             <div class="faq-a">
-              We strongly recommend that you consider independent legal and financial advice before signing any loan agreement.
-              Amicbridge is a tool, not a replacement for your own judgement.
+              No. In genuine partnership structures, profit and loss are shared. This means your capital can grow if the project succeeds
+              and can be reduced if it fails. There is no promise of “risk-free” income.
             </div>
           </div>
         </div>
@@ -1410,51 +1558,68 @@
       <div class="shell">
         <div class="section-header">
           <div class="section-label">Contact</div>
-          <h2 class="section-title">Interested in joining or partnering?</h2>
+          <h2 class="section-title">Send a request about joining or collaborating.</h2>
           <p class="section-text">
-            Use this form to reach out about membership, partnerships or questions about how Amicbridge works.
-            We reply as soon as we reasonably can.
+            Use this form to express interest in using Amicbridge, partnering with the project, or discussing how a halal P2P network
+            could support your community. In a live platform, onboarding would happen through secure, dedicated flows.
           </p>
         </div>
 
         <div class="contact-grid">
           <div class="contact-card">
             <p class="contact-small">
-              Please do not send sensitive information (like full ID numbers) through this form. Once your account is created,
-              we will provide a secure way to upload required documents.
+              Please do not send full ID numbers or other highly sensitive information through this form.
+              Once accounts exist, secure channels can be used for required documents.
             </p>
 
-            <form class="contact-form">
+            <form class="contact-form" id="contact-form" method="post" action="#">
               <div class="field">
                 <label for="name">Name</label>
-                <input id="name" name="name" type="text" placeholder="Your full name">
+                <input id="name" name="name" type="text" autocomplete="name" placeholder="Your full name" required>
               </div>
               <div class="field">
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="you@example.com">
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
               </div>
               <div class="field">
-                <label for="type">Are you mainly interested in lending or borrowing?</label>
-                <input id="type" name="type" type="text" placeholder="Lending, borrowing, or both">
+                <label for="type">What are you mainly interested in?</label>
+                <input id="type" name="type" type="text" placeholder="Qard Hasan, partnership, or both">
               </div>
               <div class="field">
                 <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" placeholder="Tell us briefly what you are looking for."></textarea>
-                <small>This form is for general contact only. It is not an application form.</small>
+                <textarea id="message" name="message" rows="4" placeholder="Briefly describe your situation or what you want to explore." required></textarea>
+                <small>This form is for general contact only. It does not create an agreement or membership.</small>
               </div>
               <button class="btn btn-secondary" type="submit">Send message</button>
+
+              <div class="form-success" id="form-success">
+                Thank you. Your message has been registered on this website example.
+                In a real deployment, this form would send your details securely to the Amicbridge team.
+              </div>
             </form>
+
+            <div class="contact-steps">
+              <strong>Conceptually, what would happen after you send this:</strong>
+              <ol>
+                <li>Your message and details would be reviewed by the Amicbridge team.</li>
+                <li>You would receive information about whether the platform is active in your country and what is required.</li>
+                <li>If you continue, real contracts would be reviewed with scholars and advisors as needed.</li>
+              </ol>
+            </div>
           </div>
 
           <div style="font-size:0.86rem;color:var(--muted);display:flex;flex-direction:column;gap:0.6rem;">
             <p>
-              Amicbridge is built for people who know that “just trust me” is not a strategy. A written agreement, a clear schedule and a shared view of the facts are not luxury – they are basic respect.
+              The goal of Amicbridge is simple: help Muslims support each other financially without riba and without chaos,
+              by putting agreements, dates and responsibilities in writing.
             </p>
             <p>
-              If that sounds like your way of handling money between people, we are interested in hearing from you – whether you want to lend, borrow or explore collaboration.
+              If you share that goal – as a potential member, community leader, scholar or technical partner – we would like to hear from you
+              and learn what you need a platform like this to do.
             </p>
             <p class="footer-legal">
-              Company details, registration number and full legal information will be visible here once the business is formally established in your jurisdiction.
+              Company details, registration numbers and any Shariah advisory board names would be displayed here once Amicbridge
+              is formally established and reviewed in the relevant jurisdiction.
             </p>
           </div>
         </div>
@@ -1466,9 +1631,12 @@
     <div class="shell footer-row">
       <div class="footer-col">
         <div class="footer-topline">
-          Amicbridge is a private network that provides structure and documentation for lending and borrowing between individuals.
+          Amicbridge is a conceptual private network and digital tool for Qard Hasan and partnership-based funding between individuals, designed to avoid riba and haram sectors.
         </div>
         <div>© <span id="year"></span> Amicbridge. All rights reserved.</div>
+        <div class="footer-company">
+          Amicbridge (planned) • [Org. no. to be added] • [City], [Country]
+        </div>
       </div>
       <div class="footer-col">
         <div class="footer-links">
@@ -1477,8 +1645,8 @@
           <a href="#contact">Contact</a>
         </div>
         <div class="footer-legal">
-          This website is an informational example. Before operating such a service, you must ensure compliance with all relevant
-          financial, consumer protection and data protection laws in your country.
+          This website text is an example and not legal, financial or religious advice.
+          Before operating or using such a service, you must consult qualified scholars, lawyers and regulators in your country.
         </div>
       </div>
     </div>
@@ -1503,35 +1671,55 @@
     }
   }
 
-  // Hero buttons
-  var btnBorrowHero = document.getElementById("btn-borrow-hero");
-  var btnLendHero = document.getElementById("btn-lend-hero");
-
-  if (btnBorrowHero) {
-    btnBorrowHero.addEventListener("click", function () {
-      openContactWithType("Borrowing");
+  // Nav apply button
+  var btnApplyNav = document.getElementById("btn-apply-nav");
+  if (btnApplyNav) {
+    btnApplyNav.addEventListener("click", function () {
+      openContactWithType("");
     });
   }
 
-  if (btnLendHero) {
-    btnLendHero.addEventListener("click", function () {
-      openContactWithType("Lending");
+  // Hero buttons
+  var btnQardHero = document.getElementById("btn-qard-hero");
+  var btnPartnerHero = document.getElementById("btn-partner-hero");
+
+  if (btnQardHero) {
+    btnQardHero.addEventListener("click", function () {
+      openContactWithType("Qard Hasan");
+    });
+  }
+
+  if (btnPartnerHero) {
+    btnPartnerHero.addEventListener("click", function () {
+      openContactWithType("Partnership (Musharaka / Mudaraba)");
     });
   }
 
   // Pricing buttons
-  var btnBorrowPricing = document.getElementById("btn-borrow-pricing");
-  var btnLendPricing = document.getElementById("btn-lend-pricing");
+  var btnQardPricing = document.getElementById("btn-qard-pricing");
+  var btnPartnerPricing = document.getElementById("btn-partner-pricing");
 
-  if (btnBorrowPricing) {
-    btnBorrowPricing.addEventListener("click", function () {
-      openContactWithType("Borrowing");
+  if (btnQardPricing) {
+    btnQardPricing.addEventListener("click", function () {
+      openContactWithType("Qard Hasan");
     });
   }
 
-  if (btnLendPricing) {
-    btnLendPricing.addEventListener("click", function () {
-      openContactWithType("Lending");
+  if (btnPartnerPricing) {
+    btnPartnerPricing.addEventListener("click", function () {
+      openContactWithType("Partnership (Musharaka / Mudaraba)");
+    });
+  }
+
+  // Simple front-end "success" handling for the form (no real backend)
+  var contactForm = document.getElementById("contact-form");
+  var formSuccess = document.getElementById("form-success");
+
+  if (contactForm && formSuccess) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault(); // Prevent real submission in this static example
+      formSuccess.classList.add("visible");
+      // In a real implementation, you would send this data to your backend here.
     });
   }
 </script>
