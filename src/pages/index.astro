@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>AmicBridge – A private bridge between borrowers and lenders</title>
+  <title>AmicBridge – A private bridge between borrowers, lenders and business partners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="AmicBridge is a private peer-to-peer network. We review who is entering, how they present themselves, and how they describe what they want to borrow or lend.">
+  <meta name="description" content="AmicBridge is a private peer-to-peer network. We review who is entering, how they present themselves, and how they describe what they want to borrow, lend or invest in together.">
   <style>
     :root {
       --bg: #f5f5f7;
@@ -172,7 +173,7 @@
     }
 
     .hero-text {
-      max-width: 640px;
+      max-width: 680px;
     }
 
     .hero-title {
@@ -234,6 +235,20 @@
       background: #f9fafb;
     }
 
+    .btn-ghost {
+      border-radius: var(--radius-pill);
+      border: none;
+      background: transparent;
+      color: #2563eb;
+      padding: 0.68rem 0.8rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     .hero-footnote {
       margin-top: 1.2rem;
       font-size: 0.8rem;
@@ -242,7 +257,7 @@
       line-height: 1.5;
     }
 
-    /* Contact / form */
+    /* Sections */
 
     .section {
       margin-bottom: 3rem;
@@ -259,6 +274,36 @@
       color: var(--text-sub);
       margin-bottom: 1.2rem;
     }
+
+    /* Business investment section */
+
+    .card-simple {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 1.2rem 1.4rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.93rem;
+      color: var(--text-sub);
+    }
+
+    .card-simple h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--text-main);
+    }
+
+    .card-simple ul {
+      margin: 0.5rem 0 0 1.1rem;
+      padding: 0;
+    }
+
+    .card-simple li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* Contact / form */
 
     .contact-grid {
       display: grid;
@@ -344,6 +389,8 @@
       color: #111827;
     }
 
+    /* Footer */
+
     footer {
       border-top: 1px solid var(--border);
       padding: 1.5rem 0 2rem;
@@ -399,10 +446,8 @@
       <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#how">How it works</a>
-        <a href="#ethics">Trust & identity</a>
-        <a href="#borrow">Borrow</a>
-        <a href="#lend">Lend</a>
-        <a href="#strategy">Strategy</a>
+        <a href="#trust">Trust &amp; identity</a>
+        <a href="#business">Business investment</a>
         <a href="#contact">Contact</a>
       </nav>
       <div class="nav-cta">
@@ -418,13 +463,13 @@
       <div class="shell hero-inner">
         <div class="hero-text">
           <h1 class="hero-title">
-            A private, trusted bridge between real borrowers and real lenders.
+            A private, trusted bridge between borrowers, lenders and business partners.
           </h1>
           <p class="hero-body">
             AmicBridge is a private peer-to-peer network. Every member goes through identity checks
             before being allowed into the network, and every request is collected in a clear, structured way.
             Our role is to be the trusted bridge: we review who is entering, how they present themselves,
-            and how they describe what they want to borrow or lend.
+            and how they describe what they want to borrow, lend, or invest in together.
           </p>
 
           <div class="hero-actions">
@@ -434,36 +479,67 @@
             <button class="btn-secondary" type="button" id="btn-offer-lending">
               Offer lending
             </button>
+            <button class="btn-ghost" type="button" id="btn-business-invest">
+              Seek business investment / share profit
+            </button>
           </div>
 
           <p class="hero-footnote">
-            AmicBridge never holds funds or crypto, never signs loan contracts, and never guarantees repayment,
-            returns or matches. All agreements and transfers happen directly between members, who must make their
-            own decisions and assessments.
+            AmicBridge never holds funds or crypto, never signs loan or investment contracts, and never guarantees
+            repayment, returns or matches. All agreements and transfers happen directly between members, who must
+            make their own decisions and assessments.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Simple "How it works" placeholder (optional) -->
+    <!-- How it works (simple placeholder) -->
     <section class="section" id="how">
       <div class="shell">
         <h2 class="section-title">How it works</h2>
         <p class="section-text">
-          This is a concept-stage outline. In a full product, AmicBridge would:
-          verify identities, collect structured loan or lending offers, and provide a private
-          environment where members can review each other and agree on their own terms.
+          In a full version of AmicBridge, members would complete identity checks, describe what they want to borrow,
+          lend or raise for a business, and then connect privately to discuss terms. AmicBridge structures that
+          information, but the actual agreements remain between the members themselves.
         </p>
+      </div>
+    </section>
+
+    <!-- Business investment section -->
+    <section class="section" id="business">
+      <div class="shell">
+        <h2 class="section-title">Business investment &amp; shared profit.</h2>
+        <p class="section-text">
+          Some members don’t just want a one-off loan – they want partners. AmicBridge can be used to find people
+          who are willing to invest in a business and share the profit (and risk) together in a clear, documented way.
+        </p>
+
+        <div class="card-simple">
+          <h3>What “shared profit” can look like on AmicBridge</h3>
+          <p>
+            The exact structure depends on local law and what you agree together, but the idea is simple:
+          </p>
+          <ul>
+            <li>One person (or group) needs investment for a business or project.</li>
+            <li>Another person (or group) brings capital as a partner, not just as a lender.</li>
+            <li>You agree on how profit will be shared and how losses are handled.</li>
+            <li>Those rules are written down in a contract outside the platform.</li>
+          </ul>
+          <p style="margin-top:0.5rem;">
+            AmicBridge helps you find each other, present your project in a structured way, and keep a record of who
+            you spoke to and what was discussed. It does <strong>not</strong> guarantee returns or provide legal or investment advice.
+          </p>
+        </div>
       </div>
     </section>
 
     <!-- Contact / request form -->
     <section class="section" id="contact">
       <div class="shell">
-        <h2 class="section-title">Send a request about borrowing or lending.</h2>
+        <h2 class="section-title">Send a request about borrowing, lending or business investment.</h2>
         <p class="section-text">
-          Use this form to signal interest in the network, whether you mainly want to borrow, lend, or explore both.
-          In a real deployment, this would send your details to the AmicBridge team over a secure channel.
+          Use this form to signal interest in the network – whether you mainly want to borrow,
+          lend, or find partners to invest in a business and share profit together.
         </p>
 
         <div class="contact-grid">
@@ -475,7 +551,8 @@
                   <option value="">Select an option</option>
                   <option value="Borrowing">Borrowing</option>
                   <option value="Lending">Lending</option>
-                  <option value="Both">Both borrowing and lending</option>
+                  <option value="Business investment / profit sharing">Business investment / profit sharing</option>
+                  <option value="Both">Both borrowing and lending / investing</option>
                 </select>
               </div>
 
@@ -491,8 +568,8 @@
 
               <div class="field">
                 <label for="message">Short description</label>
-                <textarea id="message" name="message" rows="4" placeholder="Tell us briefly about your situation or what you want to explore." required></textarea>
-                <small>This is a concept form only. It does not create an account or any kind of agreement.</small>
+                <textarea id="message" name="message" rows="4" placeholder="Describe briefly what you want to do – borrow, lend, or raise investment and share profit." required></textarea>
+                <small>This example form does not create an account, offer, contract or any promise of funding.</small>
               </div>
 
               <button class="btn-primary" type="submit">Send request</button>
@@ -508,14 +585,14 @@
           </div>
 
           <div class="side-note">
-            <strong>What AmicBridge is – and isn’t.</strong>
+            <strong>What AmicBridge does in all three cases.</strong>
             <p>
-              The idea of AmicBridge is to be a structured, private bridge between people, not a public marketplace and not a bank.
-              It would help members present themselves clearly, understand who they are dealing with, and keep a record of what was agreed.
+              Whether you need a simple personal loan, want to lend to someone you trust, or want a partner for a business,
+              the idea is the same: make it easier to find each other and talk with clear, structured information.
             </p>
             <p style="margin-top:0.6rem;">
-              Before any real product launches, the concept would need to be adapted to local law and risk rules.
-              Members would always be responsible for their own decisions and independent legal or financial advice.
+              AmicBridge itself does not sit in the middle of contracts or money flows. Members stay in control, agree on
+              their own terms, and should always get professional legal and financial advice before committing to anything.
             </p>
           </div>
         </div>
@@ -558,6 +635,11 @@
   document.getElementById("btn-offer-lending")
     .addEventListener("click", function () {
       goToContact("Lending");
+    });
+
+  document.getElementById("btn-business-invest")
+    .addEventListener("click", function () {
+      goToContact("Business investment / profit sharing");
     });
 
   document.getElementById("btn-join-nav")
