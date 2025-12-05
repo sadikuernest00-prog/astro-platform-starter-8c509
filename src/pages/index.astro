@@ -1040,8 +1040,8 @@
           </p>
 
           <div class="hero-cta-row">
-            <button class="btn btn-primary" type="button">Request to borrow</button>
-            <button class="btn btn-secondary" type="button">Apply as a lender</button>
+            <button class="btn btn-primary" type="button" id="btn-borrow-hero">Request to borrow</button>
+            <button class="btn btn-secondary" type="button" id="btn-lend-hero">Apply as a lender</button>
           </div>
 
           <div class="hero-note" aria-label="Security information">
@@ -1310,7 +1310,9 @@
                 <li>Digital agreements with clear schedules and reminders.</li>
                 <li>Overview of what you owe, to whom, and when.</li>
               </ul>
-              <button class="btn btn-secondary" style="width:100%;" type="button">Request to borrow</button>
+              <button class="btn btn-secondary" style="width:100%;" type="button" id="btn-borrow-pricing">
+                Request to borrow
+              </button>
               <p class="guarantee-text">
                 You can cancel future billing at any time. Existing agreements remain valid until completed.
               </p>
@@ -1330,7 +1332,9 @@
                 <li>Tools for tracking payments and documenting communication.</li>
                 <li>Priority response from our support team for questions and disputes.</li>
               </ul>
-              <button class="btn btn-primary" style="width:100%;" type="button">Apply as a lender</button>
+              <button class="btn btn-primary" style="width:100%;" type="button" id="btn-lend-pricing">
+                Apply as a lender
+              </button>
               <p class="guarantee-text">
                 Amicbridge does not promise returns and does not replace legal or financial advice. It gives you better structure for the decisions you make yourself.
               </p>
@@ -1484,6 +1488,52 @@
 <script>
   // Set current year
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  function openContactWithType(typeText) {
+    var typeField = document.getElementById("type");
+    var contactSection = document.getElementById("contact");
+
+    if (typeField) {
+      typeField.value = typeText;
+      typeField.focus();
+    }
+
+    if (contactSection && contactSection.scrollIntoView) {
+      contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  // Hero buttons
+  var btnBorrowHero = document.getElementById("btn-borrow-hero");
+  var btnLendHero = document.getElementById("btn-lend-hero");
+
+  if (btnBorrowHero) {
+    btnBorrowHero.addEventListener("click", function () {
+      openContactWithType("Borrowing");
+    });
+  }
+
+  if (btnLendHero) {
+    btnLendHero.addEventListener("click", function () {
+      openContactWithType("Lending");
+    });
+  }
+
+  // Pricing buttons
+  var btnBorrowPricing = document.getElementById("btn-borrow-pricing");
+  var btnLendPricing = document.getElementById("btn-lend-pricing");
+
+  if (btnBorrowPricing) {
+    btnBorrowPricing.addEventListener("click", function () {
+      openContactWithType("Borrowing");
+    });
+  }
+
+  if (btnLendPricing) {
+    btnLendPricing.addEventListener("click", function () {
+      openContactWithType("Lending");
+    });
+  }
 </script>
 </body>
 </html>
