@@ -1,29 +1,25 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Amicbridge – Halal P2P Qard Hasan & Partnership Network</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Amicbridge is a private, Shariah-aligned network for Qard Hasan (interest-free) loans and fair profit-sharing partnerships. No riba, no haram sectors, clear documentation and shared responsibility.">
+  <title>AmicBridge – A private bridge between borrowers and lenders</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="AmicBridge is a private peer-to-peer network. We review who is entering, how they present themselves, and how they describe what they want to borrow or lend.">
   <style>
     :root {
-      --bg: #020617;
-      --accent: #22c55e;
-      --accent-alt: #16a34a;
-      --accent-soft: rgba(34, 197, 94, 0.16);
-      --accent-soft-strong: rgba(34, 197, 94, 0.22);
-      --border-subtle: rgba(30, 64, 175, 0.4);
-      --border-strong: rgba(34, 197, 94, 0.9);
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --muted-2: #6b7280;
-      --shadow-hero: 0 24px 70px rgba(15, 23, 42, 0.95);
-      --shadow-card: 0 18px 55px rgba(15, 23, 42, 0.96);
-      --radius-md: 16px;
-      --radius-lg: 22px;
-      --radius-xl: 28px;
-      --max-width: 1180px;
+      --bg: #f5f5f7;
+      --surface: #ffffff;
+      --border: #e5e7eb;
+      --text-main: #111827;
+      --text-sub: #4b5563;
+      --text-muted: #6b7280;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-soft: #e0edff;
+      --radius-lg: 12px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.06);
+      --max-width: 1000px;
     }
 
     * {
@@ -34,19 +30,18 @@
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(30, 64, 175, 0.24), transparent 60%),
-        radial-gradient(circle at 80% 0, rgba(22, 163, 74, 0.18), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(37, 99, 235, 0.14), transparent 55%),
-        var(--bg);
-      color: var(--text);
+      background: var(--bg);
+      color: var(--text-main);
       -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
     }
 
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
     }
 
     .page {
@@ -67,35 +62,10 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 30;
-      backdrop-filter: blur(18px);
-      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.97), rgba(15, 23, 42, 0.9), transparent);
-      border-bottom: 1px solid rgba(15, 23, 42, 1);
-    }
-
-    .top-banner {
-      background: rgba(22, 163, 74, 0.16);
-      border-bottom: 1px solid rgba(34, 197, 94, 0.4);
-      font-size: 0.78rem;
-      color: #bbf7d0;
-    }
-
-    .top-banner-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0.35rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      gap: 0.75rem;
-      align-items: center;
-    }
-
-    .top-banner strong {
-      font-weight: 600;
-    }
-
-    .top-banner span {
-      color: #dcfce7;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
 
     .nav {
@@ -108,65 +78,51 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 0.7rem;
+      gap: 0.55rem;
     }
 
-    .logo-icon {
-      width: 36px;
-      height: 36px;
+    .logo-mark {
+      width: 32px;
+      height: 32px;
       border-radius: 999px;
-      background:
-        radial-gradient(circle at 30% 0, #ecfdf5 0, #bbf7d0 32%, #4ade80 60%, #15803d 92%);
+      background: #2563eb;
+      color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 700;
       font-size: 0.9rem;
-      color: #064e3b;
-      box-shadow: 0 16px 36px rgba(22, 163, 74, 0.9);
     }
 
     .logo-text {
-      display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
-    }
-
-    .logo-text-main {
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.9rem;
-      font-weight: 700;
-    }
-
-    .logo-text-sub {
-      font-size: 0.72rem;
-      color: var(--muted-2);
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: #111827;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 1.7rem;
+      gap: 1.4rem;
       font-size: 0.9rem;
-      color: var(--muted);
+      color: #4b5563;
     }
 
     .nav-links a {
       position: relative;
-      padding-bottom: 0.18rem;
+      padding-bottom: 0.1rem;
     }
 
     .nav-links a::after {
       content: "";
       position: absolute;
       left: 0;
-      bottom: -0.14rem;
+      bottom: -0.12rem;
       width: 0;
       height: 2px;
       border-radius: 999px;
-      background: linear-gradient(to right, #4ade80, #22c55e);
-      transition: width 0.18s ease-out;
+      background: #2563eb;
+      transition: width 0.15s ease-out;
     }
 
     .nav-links a:hover::after {
@@ -176,1450 +132,390 @@
     .nav-cta {
       display: flex;
       align-items: center;
-      gap: 0.8rem;
-    }
-
-    .btn {
-      appearance: none;
-      border: none;
-      outline: none;
-      padding: 0.55rem 1.35rem;
-      border-radius: 999px;
+      gap: 0.7rem;
       font-size: 0.9rem;
+    }
+
+    .nav-cta a {
+      color: #2563eb;
+      font-weight: 500;
+    }
+
+    .nav-cta .btn-small {
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      font-size: 0.85rem;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      transition: all 0.2s ease-out;
-      white-space: nowrap;
     }
 
-    .btn-outline {
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.65);
-      color: var(--muted);
-    }
-
-    .btn-outline:hover {
-      border-color: #e5e7eb;
-      color: #e5e7eb;
-      background: rgba(15, 23, 42, 0.98);
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #22c55e, #15803d);
-      color: #e5e7eb;
-      box-shadow: 0 14px 32px rgba(22, 163, 74, 0.85);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.04);
-      box-shadow: 0 20px 50px rgba(22, 163, 74, 1);
-    }
-
-    .btn-secondary {
-      background: rgba(15, 23, 42, 0.98);
-      border: 1px solid rgba(51, 65, 85, 0.95);
-      color: var(--text);
-    }
-
-    .btn-secondary:hover {
-      border-color: #4ade80;
-      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.95);
-      transform: translateY(-1px);
-    }
-
-    main {
-      flex: 1;
+    .nav-cta .btn-small:hover {
+      background: #f3f4f6;
     }
 
     /* Hero */
 
     .hero {
-      padding: 3.1rem 0 3.4rem;
+      background: var(--surface);
+      border-radius: 0 0 24px 24px;
+      box-shadow: var(--shadow-soft);
+      margin-top: 1.4rem;
+      margin-bottom: 2.2rem;
+      padding: 3rem 0 3.2rem;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 3.1rem;
-      align-items: center;
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
     }
 
-    .hero-kicker {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: #bbf7d0;
-      margin-bottom: 0.8rem;
+    .hero-text {
+      max-width: 640px;
     }
 
     .hero-title {
-      font-size: clamp(2.3rem, 3.1vw + 1.3rem, 3.4rem);
-      line-height: 1.04;
-      letter-spacing: -0.04em;
-      font-weight: 740;
+      font-size: clamp(2rem, 2.6vw + 1.2rem, 2.6rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      font-weight: 700;
       margin-bottom: 1rem;
     }
 
-    .hero-title span {
-      background: linear-gradient(to right, #4ade80, #22c55e);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero-subtitle {
+    .hero-body {
       font-size: 0.98rem;
-      color: var(--muted);
-      max-width: 34rem;
-      margin-bottom: 1.6rem;
+      color: var(--text-sub);
+      line-height: 1.55;
     }
 
-    .hero-cta-row {
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
       gap: 0.9rem;
-      align-items: center;
-      margin-bottom: 1.2rem;
+      margin-top: 1.6rem;
     }
 
-    .hero-note {
-      font-size: 0.8rem;
-      color: var(--muted-2);
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-    }
-
-    .hero-note-icon {
-      width: 19px;
-      height: 19px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.9);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 0.9rem;
-      font-size: 0.76rem;
-    }
-
-    .pill {
-      padding: 0.26rem 0.78rem;
-      border-radius: 999px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--muted);
-    }
-
-    .hero-stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.7rem;
-      margin-top: 1.7rem;
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    .hero-stat {
-      display: flex;
-      flex-direction: column;
-      gap: 0.12rem;
-    }
-
-    .hero-stat-value {
-      font-size: 1.1rem;
-      font-weight: 650;
-      color: #e5e7eb;
-    }
-
-    .hero-stat-label {
-      font-size: 0.8rem;
-      color: var(--muted-2);
-    }
-
-    /* Hero card */
-
-    .hero-card {
-      background:
-        radial-gradient(circle at 0 0, rgba(148, 163, 184, 0.18), transparent 60%),
-        radial-gradient(circle at 100% 0, rgba(34, 197, 94, 0.25), transparent 55%),
-        rgba(15, 23, 42, 0.98);
-      border-radius: var(--radius-xl);
-      padding: 1.35rem;
-      border: 1px solid rgba(31, 41, 55, 0.98);
-      box-shadow: var(--shadow-hero);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 0 0, rgba(148, 163, 184, 0.08), transparent 60%);
-      pointer-events: none;
-    }
-
-    .card-inner {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .card-title {
-      font-size: 0.94rem;
-      font-weight: 600;
-    }
-
-    .card-sub {
-      font-size: 0.76rem;
-      color: var(--muted-2);
-    }
-
-    .card-badge {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: #bbf7d0;
-      padding: 0.25rem 0.75rem;
-      border-radius: 999px;
-      border: 1px solid rgba(74, 222, 128, 0.9);
-      background: rgba(15, 23, 42, 0.95);
-    }
-
-    .match-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.75rem;
-      font-size: 0.8rem;
-    }
-
-    .match-col {
-      background: rgba(15, 23, 42, 0.98);
-      border-radius: 18px;
-      padding: 0.75rem 0.8rem;
-      border: 1px solid rgba(31, 41, 55, 0.98);
-    }
-
-    .match-label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #9ca3af;
-      margin-bottom: 0.25rem;
-    }
-
-    .match-name {
-      font-weight: 600;
-      margin-bottom: 0.15rem;
-    }
-
-    .match-meta {
-      font-size: 0.72rem;
-      color: #9ca3af;
-    }
-
-    .match-chip {
+    .btn-primary {
+      border-radius: var(--radius-pill);
+      border: none;
+      background: var(--primary);
+      color: #ffffff;
+      padding: 0.68rem 1.3rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
       display: inline-flex;
       align-items: center;
-      gap: 0.25rem;
-      font-size: 0.68rem;
-      padding: 0.22rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(22, 163, 74, 0.12);
-      border: 1px solid rgba(34, 197, 94, 0.9);
-      color: #bbf7d0;
-      margin-top: 0.35rem;
+      justify-content: center;
     }
 
-    .match-chip.orange {
-      background: rgba(234, 179, 8, 0.13);
-      border-color: rgba(234, 179, 8, 0.9);
-      color: #facc15;
+    .btn-primary:hover {
+      background: var(--primary-hover);
     }
 
-    .risk-row {
-      display: flex;
-      justify-content: space-between;
+    .btn-secondary {
+      border-radius: var(--radius-pill);
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      color: #111827;
+      padding: 0.68rem 1.3rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
       align-items: center;
-      margin-top: 0.75rem;
-      gap: 0.7rem;
+      justify-content: center;
     }
 
-    .risk-label {
-      font-size: 0.78rem;
-      color: var(--muted-2);
-    }
-
-    .risk-meter {
-      flex: 1;
-      height: 8px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.98);
-      border: 1px solid rgba(31, 41, 55, 0.98);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .risk-fill {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, #22c55e 0, #eab308 52%, #991b1b 100%);
-      transform-origin: left;
-      transform: scaleX(0.4);
-    }
-
-    .trust-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 0.7rem;
-      font-size: 0.74rem;
-      color: #9ca3af;
-    }
-
-    .trust-dots {
-      display: flex;
-      gap: 0.2rem;
-    }
-
-    .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: rgba(148, 163, 184, 0.7);
-    }
-
-    .dot.active {
-      background: #4ade80;
-      box-shadow: 0 0 0 4px rgba(74, 222, 128, 0.4);
+    .btn-secondary:hover {
+      background: #f9fafb;
     }
 
     .hero-footnote {
-      font-size: 0.7rem;
-      color: var(--muted-2);
-      margin-top: 0.3rem;
-    }
-
-    /* Trust strip */
-
-    .trust-bar {
-      padding: 0.85rem 1.1rem;
-      margin-top: 1.25rem;
-      border-radius: 999px;
-      border: 1px solid rgba(31, 41, 55, 1);
-      background: linear-gradient(to right, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.85));
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.1rem;
-      align-items: center;
+      margin-top: 1.2rem;
       font-size: 0.8rem;
-      color: var(--muted);
+      color: var(--text-muted);
+      max-width: 640px;
+      line-height: 1.5;
     }
 
-    .trust-label-main {
-      display: flex;
-      align-items: center;
-      gap: 0.42rem;
-    }
+    /* Contact / form */
 
-    .trust-dot-main {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.27);
-    }
-
-    .trust-items {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.1rem;
-    }
-
-    .trust-item-label {
-      color: #e5e7eb;
-      font-weight: 500;
-    }
-
-    .trust-item-sub {
-      font-size: 0.75rem;
-      color: var(--muted-2);
-    }
-
-    /* Sections */
-
-    section {
-      padding: 2.6rem 0;
-      border-top: 1px solid rgba(15, 23, 42, 1);
-    }
-
-    .section-header {
-      margin-bottom: 1.9rem;
-      max-width: 36rem;
-    }
-
-    .section-label {
-      font-size: 0.74rem;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: var(--muted-2);
-      margin-bottom: 0.35rem;
+    .section {
+      margin-bottom: 3rem;
     }
 
     .section-title {
-      font-size: 1.4rem;
-      font-weight: 650;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.45rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
     }
 
     .section-text {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1rem;
-      font-size: 0.88rem;
-    }
-
-    .step {
-      background: rgba(15, 23, 42, 0.98);
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(31, 41, 55, 1);
-      padding: 1rem;
-      box-shadow: var(--shadow-card);
-    }
-
-    .step-num {
-      width: 25px;
-      height: 25px;
-      border-radius: 999px;
-      background: rgba(34, 197, 94, 0.18);
-      border: 1px solid rgba(34, 197, 94, 0.9);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.78rem;
-      color: #bbf7d0;
-      margin-bottom: 0.6rem;
-    }
-
-    .step-title {
       font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
+      color: var(--text-sub);
+      margin-bottom: 1.2rem;
     }
-
-    .step-text {
-      font-size: 0.84rem;
-      color: var(--muted);
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 2.1rem;
-      align-items: flex-start;
-    }
-
-    .card {
-      background: rgba(15, 23, 42, 0.98);
-      border-radius: var(--radius-lg);
-      padding: 1.25rem;
-      border: 1px solid rgba(31, 41, 55, 1);
-      box-shadow: var(--shadow-card);
-    }
-
-    .card h3 {
-      font-size: 1rem;
-      margin-bottom: 0.55rem;
-    }
-
-    .card p {
-      font-size: 0.88rem;
-      color: var(--muted);
-      margin-bottom: 0.55rem;
-    }
-
-    .bullet-list {
-      list-style: none;
-      padding: 0;
-      margin: 0.5rem 0 0;
-      font-size: 0.86rem;
-      color: var(--muted);
-    }
-
-    .bullet-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.4rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .bullet-list li::before {
-      content: "•";
-      color: #4ade80;
-      font-size: 0.8rem;
-      margin-top: 0.12rem;
-    }
-
-    .pill-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 0.55rem;
-      font-size: 0.78rem;
-    }
-
-    .pill-soft {
-      padding: 0.26rem 0.78rem;
-      border-radius: 999px;
-      background: rgba(34, 197, 94, 0.13);
-      border: 1px solid rgba(34, 197, 94, 0.55);
-      color: #bbf7d0;
-    }
-
-    /* Compliance strip */
-
-    .compliance-strip {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-      font-size: 0.82rem;
-    }
-
-    .compliance-item {
-      background: rgba(15, 23, 42, 0.98);
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(31, 41, 55, 1);
-      padding: 0.9rem;
-    }
-
-    .compliance-label {
-      font-size: 0.8rem;
-      font-weight: 550;
-      margin-bottom: 0.25rem;
-    }
-
-    .compliance-text {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    /* Testimonials */
-
-    .testimonials {
-      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.9), transparent 55%), rgba(15, 23, 42, 1);
-    }
-
-    .test-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .test-card {
-      background: rgba(15, 23, 42, 0.98);
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(31, 41, 55, 1);
-      padding: 1rem;
-      font-size: 0.86rem;
-      color: var(--muted);
-      box-shadow: var(--shadow-card);
-    }
-
-    .test-quote {
-      margin-bottom: 0.7rem;
-    }
-
-    .test-person {
-      margin-top: 0.3rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.05rem;
-    }
-
-    .test-name {
-      font-size: 0.86rem;
-      color: #e5e7eb;
-      font-weight: 550;
-    }
-
-    .test-role {
-      font-size: 0.78rem;
-      color: var(--muted-2);
-    }
-
-    /* Pricing */
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.3rem;
-    }
-
-    .price-card {
-      background: rgba(15, 23, 42, 0.98);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(55, 65, 81, 1);
-      padding: 1.25rem;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow-card);
-    }
-
-    .price-card.highlight {
-      border-color: var(--border-strong);
-      box-shadow: 0 22px 65px rgba(34, 197, 94, 0.95);
-    }
-
-    .price-card.highlight::before {
-      content: "";
-      position: absolute;
-      inset: -120px;
-      background: radial-gradient(circle at top right, rgba(34, 197, 94, 0.3), transparent 60%);
-      opacity: 0.9;
-      pointer-events: none;
-    }
-
-    .price-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .badge-small {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: #bbf7d0;
-      padding: 0.24rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(74, 222, 128, 0.9);
-      display: inline-block;
-      margin-bottom: 0.55rem;
-      background: rgba(15, 23, 42, 0.96);
-    }
-
-    .price-tag {
-      font-size: 1.35rem;
-      font-weight: 650;
-      margin-bottom: 0.2rem;
-    }
-
-    .price-tag span {
-      font-size: 0.8rem;
-      font-weight: 400;
-      color: var(--muted);
-    }
-
-    .price-copy {
-      font-size: 0.88rem;
-      color: var(--muted);
-      margin-bottom: 0.55rem;
-    }
-
-    .price-list {
-      list-style: none;
-      margin: 0.7rem 0 1rem;
-      padding: 0;
-      font-size: 0.86rem;
-      color: var(--muted);
-    }
-
-    .price-list li {
-      display: flex;
-      gap: 0.4rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .price-list li::before {
-      content: "✓";
-      font-size: 0.78rem;
-      color: #4ade80;
-      margin-top: 0.08rem;
-    }
-
-    .guarantee-text {
-      margin-top: 0.6rem;
-      font-size: 0.78rem;
-      color: var(--muted-2);
-    }
-
-    /* FAQ */
-
-    .faq-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.05rem;
-      font-size: 0.87rem;
-    }
-
-    .faq-item {
-      padding: 0.75rem 0;
-      border-bottom: 1px solid rgba(31, 41, 55, 1);
-    }
-
-    .faq-q {
-      font-weight: 550;
-      margin-bottom: 0.3rem;
-    }
-
-    .faq-a {
-      color: var(--muted);
-    }
-
-    /* Contact */
 
     .contact-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
       gap: 2rem;
     }
 
-    .contact-card {
-      background: rgba(15, 23, 42, 0.98);
+    .card {
+      background: #ffffff;
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(31, 41, 55, 1);
-      padding: 1.2rem;
-      box-shadow: var(--shadow-card);
-    }
-
-    .contact-small {
-      font-size: 0.84rem;
-      color: var(--muted);
-      margin-bottom: 0.85rem;
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
+      border: 1px solid var(--border);
+      padding: 1.4rem 1.4rem 1.5rem;
+      box-shadow: var(--shadow-soft);
     }
 
     .field {
       display: flex;
       flex-direction: column;
-      gap: 0.25rem;
-      font-size: 0.84rem;
+      gap: 0.3rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.9rem;
     }
 
     .field label {
-      color: #e5e7eb;
+      color: #111827;
+      font-weight: 500;
     }
 
     .field input,
-    .field textarea {
-      background: rgba(15, 23, 42, 1);
-      border-radius: 12px;
-      border: 1px solid rgba(31, 41, 55, 1);
-      padding: 0.6rem 0.7rem;
-      color: var(--text);
+    .field textarea,
+    .field select {
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      padding: 0.55rem 0.7rem;
+      font-size: 0.9rem;
       font-family: inherit;
-      font-size: 0.86rem;
       resize: vertical;
-      min-height: 42px;
     }
 
     .field input:focus,
-    .field textarea:focus {
+    .field textarea:focus,
+    .field select:focus {
       outline: none;
-      border-color: #4ade80;
-      box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.7);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.2);
     }
 
     .field small {
-      font-size: 0.75rem;
-      color: var(--muted-2);
+      font-size: 0.78rem;
+      color: var(--text-muted);
     }
 
-    .contact-steps {
-      margin-top: 0.8rem;
-      border-radius: 14px;
-      padding: 0.75rem 0.9rem;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(31, 41, 55, 1);
+    .form-note {
       font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .contact-steps strong {
-      display: block;
-      margin-bottom: 0.25rem;
-      color: #e5e7eb;
-    }
-
-    .contact-steps ol {
-      padding-left: 1.15rem;
-      margin: 0.25rem 0 0;
-    }
-
-    .contact-steps li {
-      margin-bottom: 0.15rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
     }
 
     .form-success {
       display: none;
       margin-top: 0.7rem;
-      padding: 0.7rem 0.9rem;
-      border-radius: 12px;
-      border: 1px solid rgba(34, 197, 94, 0.8);
-      background: rgba(22, 163, 74, 0.12);
-      color: #bbf7d0;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
+      color: #166534;
+      background: #ecfdf3;
+      border-radius: 8px;
+      padding: 0.6rem 0.75rem;
+      border: 1px solid #bbf7d0;
     }
 
     .form-success.visible {
       display: block;
     }
 
-    /* Footer */
-
-    footer {
-      border-top: 1px solid rgba(15, 23, 42, 1);
-      padding: 1.7rem 0 2.2rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.8), transparent 60%);
+    .side-note {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+      line-height: 1.6;
     }
 
-    .footer-row {
+    .side-note strong {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: #111827;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 0 2rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      background: #f9fafb;
+      margin-top: auto;
+    }
+
+    footer .footer-inner {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 1rem;
-      align-items: flex-start;
+      gap: 0.8rem;
     }
 
-    .footer-col {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .footer-links a {
-      color: #9ca3af;
-    }
-
-    .footer-topline {
-      font-size: 0.8rem;
-      color: var(--muted-2);
-      margin-bottom: 0.4rem;
-    }
-
-    .footer-legal {
-      font-size: 0.78rem;
-      color: var(--muted-2);
-    }
-
-    .footer-company {
-      font-size: 0.78rem;
-      color: var(--muted-2);
-      margin-top: 0.2rem;
+    footer a {
+      color: #4b5563;
     }
 
     /* Responsive */
 
-    @media (max-width: 900px) {
-      .hero-grid,
-      .steps-grid,
-      .two-col,
-      .test-grid,
-      .pricing-grid,
-      .faq-grid,
-      .contact-grid,
-      .compliance-strip {
+    @media (max-width: 880px) {
+      .contact-grid {
         grid-template-columns: minmax(0, 1fr);
-      }
-
-      .hero {
-        padding-top: 2.4rem;
-      }
-
-      .hero-card {
-        margin-top: 0.7rem;
-      }
-
-      .trust-bar {
-        border-radius: 18px;
       }
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 760px) {
       .nav-links {
         display: none;
-      }
-
-      .nav-cta .btn-outline {
-        display: none;
-      }
-
-      .hero-cta-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .top-banner-inner {
-        flex-direction: column;
-        align-items: flex-start;
       }
     }
 
     @media (max-width: 640px) {
-      .hero-stats {
-        gap: 1rem;
+      .hero {
+        border-radius: 0;
+        margin-top: 0.8rem;
       }
     }
   </style>
 </head>
 <body>
 <div class="page">
+
+  <!-- Header -->
   <header>
-    <div class="top-banner">
-      <div class="top-banner-inner">
-        <div>
-          <strong>Early-stage concept.</strong>
-          <span>Designed for Muslims who want Qard Hasan and halal partnerships with clear documentation.</span>
-        </div>
-      </div>
-    </div>
     <div class="shell nav" aria-label="Main navigation">
       <a href="#" class="logo">
-        <div class="logo-icon">AB</div>
-        <div class="logo-text">
-          <div class="logo-text-main">Amicbridge</div>
-          <div class="logo-text-sub">Halal P2P Qard Hasan & partnerships</div>
-        </div>
+        <div class="logo-mark">A</div>
+        <div class="logo-text">AmicBridge</div>
       </a>
-      <nav class="nav-links" aria-label="Primary">
+      <nav class="nav-links">
+        <a href="#about">About</a>
         <a href="#how">How it works</a>
-        <a href="#safety">Shariah basis</a>
-        <a href="#pricing">Membership</a>
-        <a href="#compliance">Principles</a>
-        <a href="#faq">FAQ</a>
+        <a href="#ethics">Trust & identity</a>
+        <a href="#borrow">Borrow</a>
+        <a href="#lend">Lend</a>
+        <a href="#strategy">Strategy</a>
+        <a href="#contact">Contact</a>
       </nav>
       <div class="nav-cta">
-        <button class="btn btn-outline" type="button">Log in</button>
-        <button class="btn btn-primary" type="button" id="btn-apply-nav">Apply to join</button>
+        <a href="#contact">Sign in</a>
+        <button class="btn-small" type="button" id="btn-join-nav">Join the network</button>
       </div>
     </div>
   </header>
 
+  <!-- Hero -->
   <main>
-    <!-- Hero -->
-    <section class="hero" aria-labelledby="hero-heading">
-      <div class="shell hero-grid">
-        <div>
-          <p class="hero-kicker">No riba • No haram sectors • Shared responsibility</p>
-          <h1 id="hero-heading" class="hero-title">
-            A private halal network for <span>Qard Hasan</span> and <span>fair partnerships</span>.
+    <section class="hero" id="about">
+      <div class="shell hero-inner">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            A private, trusted bridge between real borrowers and real lenders.
           </h1>
-          <p class="hero-subtitle">
-            Amicbridge connects Muslims who want to help each other with interest-free loans and profit-sharing partnerships.
-            No riba, no speculative games – just clear contracts, written schedules and a traceable history between real people.
+          <p class="hero-body">
+            AmicBridge is a private peer-to-peer network. Every member goes through identity checks
+            before being allowed into the network, and every request is collected in a clear, structured way.
+            Our role is to be the trusted bridge: we review who is entering, how they present themselves,
+            and how they describe what they want to borrow or lend.
           </p>
 
-          <div class="hero-cta-row">
-            <button class="btn btn-primary" type="button" id="btn-qard-hero">Request a Qard Hasan loan</button>
-            <button class="btn btn-secondary" type="button" id="btn-partner-hero">Explore partnership funding</button>
+          <div class="hero-actions">
+            <button class="btn-primary" type="button" id="btn-request-loan">
+              Request a loan
+            </button>
+            <button class="btn-secondary" type="button" id="btn-offer-lending">
+              Offer lending
+            </button>
           </div>
 
-          <div class="hero-note" aria-label="Security information">
-            <span class="hero-note-icon">🕋</span>
-            <span>
-              No interest, no funding of haram activities. Agreements are based on Qard Hasan, Musharaka or Mudaraba,
-              with clear documentation and shared awareness of risk.
-            </span>
-          </div>
-
-          <div class="pill-row" aria-hidden="true">
-            <div class="pill">Interest-free (Qard Hasan)</div>
-            <div class="pill">Profit-sharing partnerships</div>
-            <div class="pill">No alcohol, gambling or riba sectors</div>
-          </div>
-
-          <div class="hero-stats" aria-label="Illustrative characteristics">
-            <div class="hero-stat">
-              <span class="hero-stat-value">Qard Hasan</span>
-              <span class="hero-stat-label">Loans repaid with no extra amount</span>
-            </div>
-            <div class="hero-stat">
-              <span class="hero-stat-value">Musharaka / Mudaraba</span>
-              <span class="hero-stat-label">Shared profit and shared risk</span>
-            </div>
-            <div class="hero-stat">
-              <span class="hero-stat-value">Documented</span>
-              <span class="hero-stat-label">All terms written and stored</span>
-            </div>
-          </div>
-        </div>
-
-        <aside class="hero-card" aria-label="Illustration of a halal relationship">
-          <div class="card-inner">
-            <div class="card-header">
-              <div>
-                <div class="card-title">Example inside Amicbridge (halal structure)</div>
-                <div class="card-sub">For illustration only – not a live offer or fatwa.</div>
-              </div>
-              <div class="card-badge">No riba • Clear terms</div>
-            </div>
-
-            <div class="match-grid">
-              <div class="match-col">
-                <div class="match-label">Qard Hasan loan</div>
-                <div class="match-name">“Yusuf” receives 20 000 NOK</div>
-                <div class="match-meta">Repays in 10 monthly instalments of 2 000 NOK</div>
-                <div class="match-chip">Principal only • No increase</div>
-              </div>
-              <div class="match-col">
-                <div class="match-label">Musharaka partnership</div>
-                <div class="match-name">“Amina” invests in halal café</div>
-                <div class="match-meta">Profit shared: 60% investor • 40% operator</div>
-                <div class="match-chip orange">No fixed return • Shared risk</div>
-              </div>
-            </div>
-
-            <div class="risk-row">
-              <span class="risk-label">Reminder: capital can be lost in real life.</span>
-              <div class="risk-meter" aria-hidden="true">
-                <div class="risk-fill"></div>
-              </div>
-            </div>
-
-            <div class="trust-row">
-              <span>Contracts, repayment history and messages are recorded for both sides.</span>
-              <div class="trust-dots" aria-hidden="true">
-                <div class="dot active"></div>
-                <div class="dot active"></div>
-                <div class="dot"></div>
-              </div>
-            </div>
-
-            <p class="hero-footnote">
-              This is a conceptual example. Shariah compliance depends on real contracts and review by qualified scholars.
-              Amicbridge does not give personal religious rulings (fatwa).
-            </p>
-          </div>
-        </aside>
-      </div>
-
-      <div class="shell">
-        <div class="trust-bar" aria-label="Trust foundations">
-          <div class="trust-label-main">
-            <span class="trust-dot-main"></span>
-            <span style="font-weight:500;color:#e5e7eb;">Built around Islamic principles of fairness, trust and accountability.</span>
-          </div>
-          <div class="trust-items">
-            <div>
-              <div class="trust-item-label">No riba</div>
-              <div class="trust-item-sub">No interest-bearing personal loans, no fixed guaranteed returns.</div>
-            </div>
-            <div>
-              <div class="trust-item-label">No haram sectors</div>
-              <div class="trust-item-sub">Borrowed funds and partnerships must avoid clearly prohibited activities.</div>
-            </div>
-            <div>
-              <div class="trust-item-label">Written contracts</div>
-              <div class="trust-item-sub">Clear documentation, shared history and transparent expectations.</div>
-            </div>
-          </div>
+          <p class="hero-footnote">
+            AmicBridge never holds funds or crypto, never signs loan contracts, and never guarantees repayment,
+            returns or matches. All agreements and transfers happen directly between members, who must make their
+            own decisions and assessments.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- How it works -->
-    <section id="how">
+    <!-- Simple "How it works" placeholder (optional) -->
+    <section class="section" id="how">
       <div class="shell">
-        <div class="section-header">
-          <div class="section-label">How it works</div>
-          <h2 class="section-title">From informal “trust me” to structured halal agreements.</h2>
-          <p class="section-text">
-            Many Muslims already lend and support each other, but often without a written record or clear plan. Amicbridge keeps the spirit of helping (ta’awun),
-            while adding structure and documentation so everyone knows their rights and responsibilities.
-          </p>
-        </div>
-
-        <div class="steps-grid" aria-label="Main steps">
-          <div class="step">
-            <div class="step-num">1</div>
-            <div class="step-title">Apply & verify</div>
-            <div class="step-text">
-              Apply as a borrower, lender or partner. We request identity details and basic information to understand who you are and how you plan to use the platform.
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">2</div>
-            <div class="step-title">Choose Qard Hasan or partnership</div>
-            <div class="step-text">
-              For personal needs, use Qard Hasan (interest-free loan). For business activity, use Musharaka or Mudaraba style agreements with profit and risk sharing.
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">3</div>
-            <div class="step-title">Define clear terms</div>
-            <div class="step-text">
-              Amount, schedule, purpose and allocation of profit or loss are written down. No hidden clauses, no guaranteed increase on loans.
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">4</div>
-            <div class="step-title">Sign & follow the plan</div>
-            <div class="step-text">
-              Both sides agree digitally and follow the schedule. Payments and messages are logged so you always know what has been done and what remains.
-            </div>
-          </div>
-        </div>
+        <h2 class="section-title">How it works</h2>
+        <p class="section-text">
+          This is a concept-stage outline. In a full product, AmicBridge would:
+          verify identities, collect structured loan or lending offers, and provide a private
+          environment where members can review each other and agree on their own terms.
+        </p>
       </div>
     </section>
 
-    <!-- Safety & Shariah basis -->
-    <section id="safety">
-      <div class="shell two-col">
-        <div>
-          <div class="section-header">
-            <div class="section-label">Shariah basis</div>
-            <h2 class="section-title">A platform shaped by Islamic finance principles.</h2>
-            <p class="section-text">
-              Amicbridge is not a bank and not a conventional investment app. It is a private, digital tool that helps Muslims arrange Qard Hasan and partnership-based funding
-              in a way that avoids riba and respects shared risk.
-            </p>
-          </div>
-
-          <article class="card">
-            <h3>What Amicbridge does</h3>
-            <ul class="bullet-list">
-              <li>Supports Qard Hasan (interest-free loans) with written repayment plans and clear responsibilities.</li>
-              <li>Supports Musharaka / Mudaraba style partnerships where profit and loss are shared, not guaranteed.</li>
-              <li>Provides templates and digital space to record agreements, payments and communication.</li>
-              <li>Helps screen out clearly haram sectors (gambling, alcohol, usurious finance and similar).</li>
-            </ul>
-            <div class="pill-strip">
-              <div class="pill-soft">No riba</div>
-              <div class="pill-soft">Shared risk and reward</div>
-              <div class="pill-soft">Transparent documentation</div>
-            </div>
-            <p style="margin-top:0.7rem;font-size:0.8rem;color:var(--muted-2);">
-              Amicbridge does not issue fatwa and does not replace qualified scholars or legal professionals.
-              Each member is responsible for their own situation and should consult scholars and advisors before entering agreements.
-            </p>
-          </article>
-        </div>
-
-        <aside class="card">
-          <h3>How the platform earns (without riba)</h3>
-          <p>
-            The platform does not earn from interest, late fees to lenders or percentages of loan amounts.
-            Instead, it charges for access and tools – similar to paying for software or document services.
-          </p>
-          <ul class="bullet-list">
-            <li>Fixed membership fees – independent of loan size or length.</li>
-            <li>Flat fees for verification and preparation of standard contracts.</li>
-            <li>No profit share from Qard Hasan and no “extra” taken from borrower repayments.</li>
-          </ul>
-          <p style="margin-top:0.7rem;font-size:0.86rem;color:#e5e7eb;">
-            The goal is to keep the business model as simple and clean as possible: payment for service, not payment for time value of money.
-          </p>
-        </aside>
-      </div>
-    </section>
-
-    <!-- Principles / compliance -->
-    <section id="compliance">
+    <!-- Contact / request form -->
+    <section class="section" id="contact">
       <div class="shell">
-        <div class="section-header">
-          <div class="section-label">Principles</div>
-          <h2 class="section-title">Clear about what is allowed – and what is not.</h2>
-          <p class="section-text">
-            A halal platform must have boundaries. Amicbridge is built around a few non-negotiable principles inspired by Islamic finance.
-          </p>
-        </div>
-
-        <div class="compliance-strip">
-          <div class="compliance-item">
-            <div class="compliance-label">No interest (riba)</div>
-            <div class="compliance-text">
-              Amicbridge does not host interest-bearing loans. Qard Hasan loans are repaid at exactly the same amount,
-              and business capital uses profit-sharing models instead of guaranteed returns.
-            </div>
-          </div>
-          <div class="compliance-item">
-            <div class="compliance-label">No clearly haram sectors</div>
-            <div class="compliance-text">
-              Funding requests involving alcohol, gambling, riba-based finance, adult entertainment or other clearly prohibited sectors
-              are not accepted on the platform.
-            </div>
-          </div>
-          <div class="compliance-item">
-            <div class="compliance-label">Shared risk, honest expectations</div>
-            <div class="compliance-text">
-              In partnership models, profit is shared when it exists and capital can be reduced if the project fails.
-              There are no promises of “risk-free income”.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials" aria-labelledby="test-heading">
-      <div class="shell">
-        <div class="section-header">
-          <div class="section-label">Member perspectives</div>
-          <h2 id="test-heading" class="section-title">How a structured halal network can help.</h2>
-          <p class="section-text">
-            These are anonymised, illustrative voices based on how Muslims often talk about informal lending and partnerships.
-            They show the type of benefit Amicbridge is designed to bring.
-          </p>
-        </div>
-
-        <div class="test-grid">
-          <article class="test-card">
-            <p class="test-quote">
-              “Instead of long chat messages and vague promises, we now write one Qard Hasan agreement with dates and amounts.
-              It feels more honest and less stressful for both of us.”
-            </p>
-            <div class="test-person">
-              <span class="test-name">“Abdullah”</span>
-              <span class="test-role">Helping a friend with Qard Hasan</span>
-            </div>
-          </article>
-          <article class="test-card">
-            <p class="test-quote">
-              “I wanted to support a halal business, but not with interest. Having a clear Musharaka-style contract and regular reports
-              makes it much easier to sleep at night.”
-            </p>
-            <div class="test-person">
-              <span class="test-name">“Fatima”</span>
-              <span class="test-role">Partnership investor</span>
-            </div>
-          </article>
-          <article class="test-card">
-            <p class="test-quote">
-              “The platform is not a fatwa source, but it gives structure that fits what our local scholar has been teaching us for years:
-              no riba, no exploitation, clear agreements.”
-            </p>
-            <div class="test-person">
-              <span class="test-name">“Omar”</span>
-              <span class="test-role">Community organiser</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Membership / Pricing -->
-    <section id="pricing">
-      <div class="shell">
-        <div class="section-header">
-          <div class="section-label">Membership</div>
-          <h2 class="section-title">A paid network to keep the quality high.</h2>
-          <p class="section-text">
-            Amicbridge charges for tools and access – not for interest and not as a percentage of loans.
-            Membership fees below are conceptual and must be adapted to real-life regulation and costs.
-          </p>
-        </div>
-
-        <div class="pricing-grid">
-          <article class="price-card">
-            <div class="price-inner">
-              <span class="badge-small">Qard Hasan access</span>
-              <div class="price-tag">NOK 99 <span>/ month (example)</span></div>
-              <p class="price-copy">
-                For members who mainly want to give or receive support through Qard Hasan loans with proper documentation and follow-up.
-              </p>
-              <ul class="price-list">
-                <li>Create and sign interest-free Qard Hasan agreements.</li>
-                <li>Schedule repayments and track completion over time.</li>
-                <li>Store communication and updates in one shared place.</li>
-                <li>Tools to prepare documents you can discuss with your scholar or advisor.</li>
-              </ul>
-              <button class="btn btn-secondary" style="width:100%;" type="button" id="btn-qard-pricing">
-                Request a Qard Hasan loan
-              </button>
-              <p class="guarantee-text">
-                This fee is for access and tools only. It does not increase or decrease based on how much you borrow or lend.
-              </p>
-            </div>
-          </article>
-
-          <article class="price-card highlight">
-            <div class="price-inner">
-              <span class="badge-small">Partnership access</span>
-              <div class="price-tag">NOK 199 <span>/ month (example)</span></div>
-              <p class="price-copy">
-                For members who want to engage in halal business partnerships, sharing profit and risk through clear contracts and regular reporting.
-              </p>
-              <ul class="price-list">
-                <li>Templates for Musharaka / Mudaraba style partnership agreements.</li>
-                <li>Tools for recording profit, loss and distributions.</li>
-                <li>Portfolio overview of all active partnership projects.</li>
-                <li>Priority help with documentation issues related to the platform.</li>
-              </ul>
-              <button class="btn btn-primary" style="width:100%;" type="button" id="btn-partner-pricing">
-                Explore partnership funding
-              </button>
-              <p class="guarantee-text">
-                Amicbridge does not promise specific returns or outcomes. Capital in real business can grow or be lost.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq">
-      <div class="shell">
-        <div class="section-header">
-          <div class="section-label">Questions</div>
-          <h2 class="section-title">Frequently asked questions.</h2>
-          <p class="section-text">
-            A halal platform should answer questions directly. Here are some common ones.
-          </p>
-        </div>
-
-        <div class="faq-grid">
-          <div class="faq-item">
-            <div class="faq-q">Does Amicbridge allow interest?</div>
-            <div class="faq-a">
-              No. Amicbridge is designed for Qard Hasan and partnership-based funding only. Personal loans are repaid at the same amount that was given,
-              and business funding uses shared profit and risk instead of fixed returns.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">Is this platform a replacement for fatwa or personal Islamic advice?</div>
-            <div class="faq-a">
-              No. Amicbridge is a technical tool and network, not a fatwa service. We encourage all members to consult qualified scholars
-              about their situations before entering into any agreement.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">How does Amicbridge make money if it does not charge interest?</div>
-            <div class="faq-a">
-              The platform earns from membership and service fees, similar to paying for software or documentation tools.
-              Fees are not calculated as a percentage of loan amounts or repayment time.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">What happens if someone does not repay a Qard Hasan loan?</div>
-            <div class="faq-a">
-              The legal and ethical responsibility is between lender and borrower. Amicbridge provides records and documentation that can be used in discussion,
-              mediation or legal processes, but it does not act as an enforcement or collection agency.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">Can this be used for any kind of business?</div>
-            <div class="faq-a">
-              No. Funding requests and partnerships that clearly involve haram sectors (such as gambling, alcohol or usurious finance) are not permitted.
-              Users are also expected to avoid doubtful matters and consult scholars.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">Is my capital guaranteed in a partnership?</div>
-            <div class="faq-a">
-              No. In genuine partnership structures, profit and loss are shared. This means your capital can grow if the project succeeds
-              and can be reduced if it fails. There is no promise of “risk-free” income.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-      <div class="shell">
-        <div class="section-header">
-          <div class="section-label">Contact</div>
-          <h2 class="section-title">Send a request about joining or collaborating.</h2>
-          <p class="section-text">
-            Use this form to express interest in using Amicbridge, partnering with the project, or discussing how a halal P2P network
-            could support your community. In a live platform, onboarding would happen through secure, dedicated flows.
-          </p>
-        </div>
+        <h2 class="section-title">Send a request about borrowing or lending.</h2>
+        <p class="section-text">
+          Use this form to signal interest in the network, whether you mainly want to borrow, lend, or explore both.
+          In a real deployment, this would send your details to the AmicBridge team over a secure channel.
+        </p>
 
         <div class="contact-grid">
-          <div class="contact-card">
-            <p class="contact-small">
-              Please do not send full ID numbers or other highly sensitive information through this form.
-              Once accounts exist, secure channels can be used for required documents.
-            </p>
+          <div class="card">
+            <form id="contact-form" method="post" action="#">
+              <div class="field">
+                <label for="intent">I am mainly interested in</label>
+                <select id="intent" name="intent">
+                  <option value="">Select an option</option>
+                  <option value="Borrowing">Borrowing</option>
+                  <option value="Lending">Lending</option>
+                  <option value="Both">Both borrowing and lending</option>
+                </select>
+              </div>
 
-            <form class="contact-form" id="contact-form" method="post" action="#">
               <div class="field">
                 <label for="name">Name</label>
-                <input id="name" name="name" type="text" autocomplete="name" placeholder="Your full name" required>
+                <input id="name" name="name" type="text" placeholder="Your full name" required />
               </div>
+
               <div class="field">
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required />
               </div>
+
               <div class="field">
-                <label for="type">What are you mainly interested in?</label>
-                <input id="type" name="type" type="text" placeholder="Qard Hasan, partnership, or both">
+                <label for="message">Short description</label>
+                <textarea id="message" name="message" rows="4" placeholder="Tell us briefly about your situation or what you want to explore." required></textarea>
+                <small>This is a concept form only. It does not create an account or any kind of agreement.</small>
               </div>
-              <div class="field">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" placeholder="Briefly describe your situation or what you want to explore." required></textarea>
-                <small>This form is for general contact only. It does not create an agreement or membership.</small>
+
+              <button class="btn-primary" type="submit">Send request</button>
+              <div class="form-note">
+                Please do not include sensitive personal data (full ID numbers, passwords, etc.) in this message.
               </div>
-              <button class="btn btn-secondary" type="submit">Send message</button>
 
               <div class="form-success" id="form-success">
-                Thank you. Your message has been registered on this website example.
-                In a real deployment, this form would send your details securely to the Amicbridge team.
+                Thank you. Your request has been recorded on this example page.
+                In a real implementation, this would be sent securely to the AmicBridge team for follow-up.
               </div>
             </form>
-
-            <div class="contact-steps">
-              <strong>Conceptually, what would happen after you send this:</strong>
-              <ol>
-                <li>Your message and details would be reviewed by the Amicbridge team.</li>
-                <li>You would receive information about whether the platform is active in your country and what is required.</li>
-                <li>If you continue, real contracts would be reviewed with scholars and advisors as needed.</li>
-              </ol>
-            </div>
           </div>
 
-          <div style="font-size:0.86rem;color:var(--muted);display:flex;flex-direction:column;gap:0.6rem;">
+          <div class="side-note">
+            <strong>What AmicBridge is – and isn’t.</strong>
             <p>
-              The goal of Amicbridge is simple: help Muslims support each other financially without riba and without chaos,
-              by putting agreements, dates and responsibilities in writing.
+              The idea of AmicBridge is to be a structured, private bridge between people, not a public marketplace and not a bank.
+              It would help members present themselves clearly, understand who they are dealing with, and keep a record of what was agreed.
             </p>
-            <p>
-              If you share that goal – as a potential member, community leader, scholar or technical partner – we would like to hear from you
-              and learn what you need a platform like this to do.
-            </p>
-            <p class="footer-legal">
-              Company details, registration numbers and any Shariah advisory board names would be displayed here once Amicbridge
-              is formally established and reviewed in the relevant jurisdiction.
+            <p style="margin-top:0.6rem;">
+              Before any real product launches, the concept would need to be adapted to local law and risk rules.
+              Members would always be responsible for their own decisions and independent legal or financial advice.
             </p>
           </div>
         </div>
@@ -1627,101 +523,57 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <div class="shell footer-row">
-      <div class="footer-col">
-        <div class="footer-topline">
-          Amicbridge is a conceptual private network and digital tool for Qard Hasan and partnership-based funding between individuals, designed to avoid riba and haram sectors.
-        </div>
-        <div>© <span id="year"></span> Amicbridge. All rights reserved.</div>
-        <div class="footer-company">
-          Amicbridge (planned) • [Org. no. to be added] • [City], [Country]
-        </div>
-      </div>
-      <div class="footer-col">
-        <div class="footer-links">
-          <a href="#">Terms &amp; Conditions</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <div class="footer-legal">
-          This website text is an example and not legal, financial or religious advice.
-          Before operating or using such a service, you must consult qualified scholars, lawyers and regulators in your country.
-        </div>
+    <div class="shell footer-inner">
+      <div>© <span id="year"></span> AmicBridge. All rights reserved.</div>
+      <div>
+        <a href="#terms">Terms</a> · <a href="#privacy">Privacy</a>
       </div>
     </div>
   </footer>
+
 </div>
 
 <script>
-  // Set current year
+  // Year
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  function openContactWithType(typeText) {
-    var typeField = document.getElementById("type");
-    var contactSection = document.getElementById("contact");
-
-    if (typeField) {
-      typeField.value = typeText;
-      typeField.focus();
+  function goToContact(intentValue) {
+    var select = document.getElementById("intent");
+    if (select && intentValue) {
+      select.value = intentValue;
     }
-
-    if (contactSection && contactSection.scrollIntoView) {
-      contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    var contact = document.getElementById("contact");
+    if (contact && contact.scrollIntoView) {
+      contact.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }
 
-  // Nav apply button
-  var btnApplyNav = document.getElementById("btn-apply-nav");
-  if (btnApplyNav) {
-    btnApplyNav.addEventListener("click", function () {
-      openContactWithType("");
+  document.getElementById("btn-request-loan")
+    .addEventListener("click", function () {
+      goToContact("Borrowing");
     });
-  }
 
-  // Hero buttons
-  var btnQardHero = document.getElementById("btn-qard-hero");
-  var btnPartnerHero = document.getElementById("btn-partner-hero");
-
-  if (btnQardHero) {
-    btnQardHero.addEventListener("click", function () {
-      openContactWithType("Qard Hasan");
+  document.getElementById("btn-offer-lending")
+    .addEventListener("click", function () {
+      goToContact("Lending");
     });
-  }
 
-  if (btnPartnerHero) {
-    btnPartnerHero.addEventListener("click", function () {
-      openContactWithType("Partnership (Musharaka / Mudaraba)");
+  document.getElementById("btn-join-nav")
+    .addEventListener("click", function () {
+      goToContact("");
     });
-  }
 
-  // Pricing buttons
-  var btnQardPricing = document.getElementById("btn-qard-pricing");
-  var btnPartnerPricing = document.getElementById("btn-partner-pricing");
+  // Fake submit handler for demo
+  var form = document.getElementById("contact-form");
+  var success = document.getElementById("form-success");
 
-  if (btnQardPricing) {
-    btnQardPricing.addEventListener("click", function () {
-      openContactWithType("Qard Hasan");
-    });
-  }
-
-  if (btnPartnerPricing) {
-    btnPartnerPricing.addEventListener("click", function () {
-      openContactWithType("Partnership (Musharaka / Mudaraba)");
-    });
-  }
-
-  // Simple front-end "success" handling for the form (no real backend)
-  var contactForm = document.getElementById("contact-form");
-  var formSuccess = document.getElementById("form-success");
-
-  if (contactForm && formSuccess) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault(); // Prevent real submission in this static example
-      formSuccess.classList.add("visible");
-      // In a real implementation, you would send this data to your backend here.
-    });
-  }
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    success.classList.add("visible");
+    // Here you would send the data to your backend in a real deployment.
+  });
 </script>
 </body>
 </html>
