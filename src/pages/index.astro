@@ -1,627 +1,759 @@
+---
+const year = new Date().getFullYear();
+---
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>AmicBridge – A private bridge between borrowers, lenders and business partners</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="AmicBridge is a private peer-to-peer network. We review who is entering, how they present themselves, and how they describe what they want to borrow, lend or invest in together – in local currency, foreign currency or crypto, depending on what they agree.">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AmicBridge – Private Peer-to-Peer Lending Network</title>
+    <meta
+      name="description"
+      content="AmicBridge is a private, identity-checked peer-to-peer network that connects real borrowers and lenders through structured requests and a trusted bridge."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body class="page">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container header-inner">
+        <div class="logo">
+          <span class="logo-mark">A</span>
+          <span class="logo-text">AmicBridge</span>
+        </div>
+
+        <nav class="nav">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#how" class="nav-link">How it works</a>
+          <a href="#trust" class="nav-link">Trust & identity</a>
+          <a href="#borrow" class="nav-link">Borrow</a>
+          <a href="#lend" class="nav-link">Lend</a>
+          <a href="#strategy" class="nav-link">Strategy</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1 class="hero-title">
+          A private, trusted bridge between real borrowers and real lenders.
+        </h1>
+        <p class="hero-subtitle">
+          AmicBridge is a private peer-to-peer network. Every member goes through
+          identity checks before being allowed into the network, and every request
+          is collected in a clear, structured way. Our role is to be the trusted
+          bridge: we review who is entering, how they present themselves, and how
+          they describe what they want to borrow or lend.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#borrow" class="btn btn-primary">Request a loan</a>
+          <a href="#lend" class="btn btn-secondary">Offer lending</a>
+        </div>
+
+        <p class="hero-note">
+          AmicBridge never holds funds or crypto, never signs loan contracts, and never
+          guarantees repayment, returns or matches. All agreements and transfers happen
+          directly between members, who must make their own decisions and assessments.
+        </p>
+      </div>
+    </section>
+
+    <!-- ABOUT / WHAT IS AMICBRIDGE -->
+    <section id="about" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">What is AmicBridge?</h2>
+        <p class="section-lead">
+          AmicBridge is a private network where people who want to borrow and people who
+          want to lend can meet in a controlled environment. It is not an open
+          marketplace for anyone with a link. Only identity-checked members are allowed
+          to participate.
+        </p>
+
+        <ul class="bridge-list">
+          <li>Private network, not a public bulletin board</li>
+          <li>Identity checks on all members before they are allowed in</li>
+          <li>Structured forms for borrowing, lending and strategy requests</li>
+          <li>No custody of funds, no holding of crypto or bank deposits</li>
+          <li>Direct agreements and transfers between members only</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="section">
+      <div class="container">
+        <h2 class="section-title">How the trusted bridge works</h2>
+        <div class="how-grid">
+          <div class="how-step">
+            <span class="how-number">1</span>
+            <div>
+              <h3>Send a request</h3>
+              <p>
+                You submit a borrowing request, lending offer or strategy request using
+                a structured form. Your information is sent privately to AmicBridge for
+                review.
+              </p>
+            </div>
+          </div>
+
+          <div class="how-step">
+            <span class="how-number">2</span>
+            <div>
+              <h3>Identity check</h3>
+              <p>
+                Before anyone is allowed into the private network, AmicBridge performs
+                identity checks on that member. This confirms who they say they are and
+                creates accountability inside the network.
+              </p>
+            </div>
+          </div>
+
+          <div class="how-step">
+            <span class="how-number">3</span>
+            <div>
+              <h3>Careful matching & direct contact</h3>
+              <p>
+                Where there is a suitable fit, AmicBridge can act as the bridge between
+                borrower and lender. Members then communicate and decide directly
+                between themselves what to do, if anything.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST & IDENTITY -->
+    <section id="trust" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Trust & identity checks</h2>
+        <p class="section-lead">
+          Trust begins with knowing who is inside the network. AmicBridge is built
+          around the idea that private, identity-checked networks are safer and more
+          serious than anonymous crowds.
+        </p>
+
+        <div class="principles-grid">
+          <div class="principle-card">
+            <h3>Private network</h3>
+            <p>
+              AmicBridge is not open to everyone. Only members who pass identity checks
+              and basic review can join the private environment.
+            </p>
+          </div>
+          <div class="principle-card">
+            <h3>Identity checks on all members</h3>
+            <p>
+              We perform identity checks on every member before they are allowed in. This
+              creates accountability, but it does not mean zero risk or a guarantee of
+              repayment.
+            </p>
+          </div>
+          <div class="principle-card">
+            <h3>Clarity over hype</h3>
+            <p>
+              Requests use structured fields so borrowers and lenders see clear
+              information, not vague promises.
+            </p>
+          </div>
+          <div class="principle-card">
+            <h3>No unrealistic promises</h3>
+            <p>
+              We do not promise safe returns, guaranteed loans or profits. Our role is
+              the bridge, not the outcome.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BORROW FORM -->
+    <section id="borrow" class="section">
+      <div class="container">
+        <h2 class="section-title">Send a borrowing request</h2>
+        <p class="section-lead">
+          Use this form if you want to borrow. Your request goes privately to AmicBridge.
+          If you are not yet a member, we will contact you and complete identity checks
+          first before any possible introduction.
+        </p>
+
+        <form
+          class="form"
+          action="https://formspree.io/f/movgnjyd"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="_subject"
+            value="New BORROW request on AmicBridge"
+          />
+          <input type="hidden" name="request_type" value="borrow" />
+
+          <label>
+            Full name
+            <input type="text" name="full_name" required />
+          </label>
+
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+
+          <label>
+            Country of residence
+            <input type="text" name="country" required />
+          </label>
+
+          <div class="form-row">
+            <label>
+              Amount you want to borrow
+              <input type="number" name="amount" min="1" required />
+            </label>
+
+            <label>
+              Asset
+              <select name="asset">
+                <option>EUR</option>
+                <option>USD</option>
+                <option>NOK</option>
+                <option>BTC</option>
+                <option>ETH</option>
+                <option>USDT</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Desired duration
+            <select name="duration">
+              <option>Up to 6 months</option>
+              <option>Up to 12 months</option>
+              <option>Up to 24 months</option>
+              <option>Up to 36 months</option>
+            </select>
+          </label>
+
+          <label>
+            Max annual interest you can accept
+            <input type="number" name="max_interest" min="1" max="40" />
+          </label>
+
+          <label>
+            Purpose and how you plan to repay
+            <textarea name="purpose" rows="3"></textarea>
+          </label>
+
+          <button class="btn btn-primary btn-full">Submit borrowing request</button>
+
+          <p class="card-note">
+            This form does not create a loan. It is an invitation to begin a review and
+            identity process inside the private network. All decisions remain yours.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <!-- LEND FORM -->
+    <section id="lend" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Send a lending offer</h2>
+        <p class="section-lead">
+          Use this form if you want to lend. Your offer goes privately to AmicBridge.
+          Identity checks are required before you can become a member of the private
+          network and be considered as a lender.
+        </p>
+
+        <form
+          class="form"
+          action="https://formspree.io/f/movgnjyd"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="_subject"
+            value="New LEND offer on AmicBridge"
+          />
+          <input type="hidden" name="request_type" value="lend" />
+
+          <label>
+            Full name
+            <input type="text" name="full_name" required />
+          </label>
+
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+
+          <label>
+            Country of residence
+            <input type="text" name="country" required />
+          </label>
+
+          <div class="form-row">
+            <label>
+              Amount you are willing to lend
+              <input type="number" name="amount" min="1" required />
+            </label>
+
+            <label>
+              Asset
+              <select name="asset">
+                <option>EUR</option>
+                <option>USD</option>
+                <option>NOK</option>
+                <option>BTC</option>
+                <option>ETH</option>
+                <option>USDT</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Target annual interest
+            <input type="number" name="target_interest" min="1" max="40" />
+          </label>
+
+          <label>
+            What kind of borrower are you looking for?
+            <textarea name="preferred_borrower" rows="3"></textarea>
+          </label>
+
+          <button class="btn btn-secondary btn-full">Submit lending offer</button>
+
+          <p class="card-note">
+            Lending is risky. Even inside a private, identity-checked network, borrowers
+            may fail to repay. Never lend more than you can afford to lose.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <!-- STRATEGY FORM -->
+    <section id="strategy" class="section">
+      <div class="container">
+        <h2 class="section-title">Request investment strategy ideas</h2>
+        <p class="section-lead">
+          Use this form if you want to request investment strategy ideas and guidance.
+          Any ideas are for information and education only – not guaranteed results.
+        </p>
+
+        <form
+          class="form"
+          action="https://formspree.io/f/movgnjyd"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="_subject"
+            value="New STRATEGY request on AmicBridge"
+          />
+          <input type="hidden" name="request_type" value="strategy" />
+
+          <label>
+            Full name
+            <input type="text" name="full_name" required />
+          </label>
+
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+
+          <label>
+            Country of residence
+            <input type="text" name="country" required />
+          </label>
+
+          <label>
+            Budget for strategy service (EUR equivalent)
+            <input type="number" name="budget" min="1" required />
+          </label>
+
+          <label>
+            Your main goal
+            <textarea name="goal" rows="3"></textarea>
+          </label>
+
+          <label>
+            What can you invest in? (cash, crypto, stocks, etc.)
+            <textarea name="assets" rows="2"></textarea>
+          </label>
+
+          <button class="btn btn-primary btn-full">Submit strategy request</button>
+
+          <p class="card-note">
+            Any strategy ideas are not a promise of returns. Markets and people can
+            change, and you can lose money.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Contact AmicBridge</h2>
+        <p class="section-lead">
+          If you have questions about how the private network works, the identity
+          checks, or the role of AmicBridge as a trusted bridge, you can contact the
+          founder directly or use this form.
+        </p>
+
+        <form
+          class="form"
+          action="https://formspree.io/f/movgnjyd"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="_subject"
+            value="New CONTACT message from AmicBridge"
+          />
+          <input type="hidden" name="request_type" value="contact" />
+
+          <label>
+            Your name
+            <input type="text" name="name" required />
+          </label>
+
+          <label>
+            Your email
+            <input type="email" name="email" required />
+          </label>
+
+          <label>
+            Message
+            <textarea name="message" rows="4"></textarea>
+          </label>
+
+          <button class="btn btn-primary btn-full">Send message</button>
+
+          <p class="card-note">
+            For security, do not send passwords, card details or private keys in this
+            form.
+          </p>
+        </form>
+
+        <div class="contact-card" style="margin-top:1.5rem;">
+          <p><strong>CEO:</strong> Robert</p>
+          <p>
+            <strong>Email:</strong>
+            <a href="mailto:Robertamicolsen@gmail.com">Robertamicolsen@gmail.com</a>
+          </p>
+          <p class="card-note">
+            Direct email is available for important questions and partnership discussions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p class="footer-main">
+          AmicBridge is a private, Cyprus-based peer-to-peer network that collects
+          structured borrowing, lending and investment strategy requests from
+          identity-checked members. It does not hold user funds, handle money or
+          crypto, act as a bank or financial advisor, or guarantee any approvals,
+          matches, results or repayments. Members remain fully responsible for their
+          decisions, agreements and legal obligations.
+        </p>
+        <p class="footer-meta">
+          © {year} AmicBridge · A private, trusted bridge between people.
+        </p>
+      </div>
+    </footer>
+  </body>
+
   <style>
-    :root {
-      --bg: #f5f5f7;
-      --surface: #ffffff;
-      --border: #e5e7eb;
-      --text-main: #111827;
-      --text-sub: #4b5563;
-      --text-muted: #6b7280;
-      --primary: #2563eb;
-      --primary-hover: #1d4ed8;
-      --radius-lg: 12px;
-      --radius-pill: 999px;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.06);
-      --max-width: 1000px;
+    :global(body) {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #f8f9fc;
+      color: #1e1e1e;
     }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-      background: var(--bg);
-      color: var(--text-main);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    button { font-family: inherit; }
-
     .page {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
-
-    .shell {
-      width: 100%;
-      max-width: var(--max-width);
+    .container {
+      max-width: 1080px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
-
-    /* Header / nav */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+    .section {
+      padding: 3rem 0;
     }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.9rem 0;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-    }
-
-    .logo-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      background: #2563eb;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-
-    .logo-text {
-      font-weight: 600;
-      font-size: 0.98rem;
-      color: #111827;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.4rem;
-      font-size: 0.9rem;
-      color: #4b5563;
-    }
-
-    .nav-links a {
-      position: relative;
-      padding-bottom: 0.1rem;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -0.12rem;
-      width: 0;
-      height: 2px;
-      border-radius: 999px;
-      background: #2563eb;
-      transition: width 0.15s ease-out;
-    }
-
-    .nav-links a:hover::after { width: 100%; }
-
-    .nav-cta {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      font-size: 0.9rem;
-    }
-
-    .nav-cta a {
-      color: #2563eb;
-      font-weight: 500;
-    }
-
-    .nav-cta .btn-small {
-      padding: 0.45rem 0.95rem;
-      border-radius: 999px;
-      border: 1px solid #d1d5db;
+    .section-alt {
       background: #ffffff;
-      font-size: 0.85rem;
-      cursor: pointer;
+      border-block: 1px solid #e5e7eb;
     }
-
-    .nav-cta .btn-small:hover { background: #f3f4f6; }
-
-    /* Hero */
-
-    .hero {
-      background: var(--surface);
-      border-radius: 0 0 24px 24px;
-      box-shadow: var(--shadow-soft);
-      margin-top: 1.4rem;
-      margin-bottom: 2.2rem;
-      padding: 3rem 0 3.2rem;
+    .section-title {
+      font-size: 1.9rem;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
     }
-
-    .hero-inner {
-      display: flex;
-      flex-direction: column;
-      gap: 1.8rem;
-    }
-
-    .hero-text { max-width: 680px; }
-
-    .hero-title {
-      font-size: clamp(2rem, 2.6vw + 1.2rem, 2.6rem);
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .hero-body {
-      font-size: 0.98rem;
-      color: var(--text-sub);
+    .section-lead {
+      max-width: 50rem;
+      color: #555;
+      margin-bottom: 2rem;
       line-height: 1.55;
     }
 
-    .hero-actions {
+    .header {
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .header-inner {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
-      gap: 0.9rem;
-      margin-top: 1.6rem;
+      justify-content: space-between;
+      padding: 1rem 0;
     }
-
-    .btn-primary {
-      border-radius: var(--radius-pill);
-      border: none;
-      background: var(--primary);
-      color: #ffffff;
-      padding: 0.68rem 1.3rem;
-      font-size: 0.95rem;
-      font-weight: 500;
-      cursor: pointer;
-      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 600;
+      color: #111;
+    }
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-    }
-
-    .btn-primary:hover { background: var(--primary-hover); }
-
-    .btn-secondary {
-      border-radius: var(--radius-pill);
-      border: 1px solid #d1d5db;
-      background: #ffffff;
-      color: #111827;
-      padding: 0.68rem 1.3rem;
-      font-size: 0.95rem;
+      background: linear-gradient(to bottom right, #3b82f6, #6366f1);
+      color: white;
+      font-size: 0.85rem;
       font-weight: 500;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
     }
-
-    .btn-secondary:hover { background: #f9fafb; }
-
-    .btn-ghost {
-      border-radius: var(--radius-pill);
-      border: none;
-      background: transparent;
-      color: #2563eb;
-      padding: 0.68rem 0.8rem;
+    .logo-text {
+      font-size: 1.05rem;
+    }
+    .nav {
+      display: flex;
+      gap: 1rem;
       font-size: 0.9rem;
-      font-weight: 500;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      text-decoration: none;
+      color: #444;
+      padding-bottom: 2px;
+    }
+    .nav-link:hover {
+      color: #000;
+    }
+
+    .hero {
+      padding: 4rem 0 3rem;
+      background: #fafbfe;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .hero-inner {
+      max-width: 830px;
+      margin: 0 auto;
+    }
+    .hero-title {
+      font-size: 2.1rem;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+    .hero-subtitle {
+      font-size: 1.03rem;
+      color: #4b5563;
+      line-height: 1.6;
+      margin-bottom: 1.4rem;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .hero-note {
+      font-size: 0.85rem;
+      color: #666;
+      max-width: 32rem;
+      line-height: 1.4;
+    }
+
+    .btn {
+      border-radius: 0.45rem;
+      padding: 0.6rem 1rem;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
       cursor: pointer;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      transition: 0.18s;
+    }
+    .btn-primary {
+      background: linear-gradient(to right, #6366f1, #3b82f6);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(to right, #4f46e5, #2563eb);
+    }
+    .btn-secondary {
+      border-color: #d0d3da;
+      background: #f9fafb;
+      color: #222;
+    }
+    .btn-secondary:hover {
+      background: #f1f2f5;
+      border-color: #babec7;
+    }
+    .btn-full {
+      width: 100%;
+      margin-top: 0.6rem;
     }
 
-    .hero-footnote {
-      margin-top: 1.2rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      max-width: 640px;
-      line-height: 1.5;
-    }
-
-    /* Sections */
-
-    .section {
-      margin-bottom: 3rem;
-    }
-
-    .section-title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-    }
-
-    .section-text {
-      font-size: 0.95rem;
-      color: var(--text-sub);
-      margin-bottom: 1.2rem;
-    }
-
-    .card-simple {
-      background: #ffffff;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      padding: 1.2rem 1.4rem 1.3rem;
-      box-shadow: var(--shadow-soft);
-      font-size: 0.93rem;
-      color: var(--text-sub);
-    }
-
-    .card-simple h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-      color: var(--text-main);
-    }
-
-    .card-simple ul {
-      margin: 0.5rem 0 0 1.1rem;
-      padding: 0;
-    }
-
-    .card-simple li { margin-bottom: 0.25rem; }
-
-    /* Contact / form */
-
-    .contact-grid {
+    .how-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 2rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+    .how-step {
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+    }
+    .how-number {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: #eef0ff;
+      border: 1px solid #c7ccf7;
+      color: #3f4cd0;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.15rem;
     }
 
-    .card {
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+    .principle-card {
       background: #ffffff;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      padding: 1.4rem 1.4rem 1.5rem;
-      box-shadow: var(--shadow-soft);
+      border: 1px solid #e4e6eb;
+      border-radius: 0.8rem;
+      padding: 1.2rem 1rem;
     }
 
-    .field {
+    .bridge-list li {
+      margin-bottom: 0.45rem;
+      color: #3b3b3b;
+    }
+
+    .form {
       display: flex;
       flex-direction: column;
-      gap: 0.3rem;
-      margin-bottom: 0.9rem;
-      font-size: 0.9rem;
+      gap: 0.8rem;
+      max-width: 600px;
+      background: #ffffff;
+      padding: 1.4rem;
+      border-radius: 0.9rem;
+      border: 1px solid #e5e7eb;
+      margin-top: 2rem;
     }
-
-    .field label {
-      color: #111827;
-      font-weight: 500;
-    }
-
-    .field input,
-    .field textarea,
-    .field select {
-      border-radius: 8px;
-      border: 1px solid #d1d5db;
-      padding: 0.55rem 0.7rem;
-      font-size: 0.9rem;
-      font-family: inherit;
-      resize: vertical;
-    }
-
-    .field input:focus,
-    .field textarea:focus,
-    .field select:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.2);
-    }
-
-    .field small {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    .form-note {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 0.4rem;
-    }
-
-    .form-success {
-      display: none;
-      margin-top: 0.7rem;
+    label {
       font-size: 0.85rem;
-      color: #166534;
-      background: #ecfdf3;
-      border-radius: 8px;
-      padding: 0.6rem 0.75rem;
-      border: 1px solid #bbf7d0;
-    }
-
-    .form-success.visible { display: block; }
-
-    .side-note {
-      font-size: 0.9rem;
-      color: var(--text-sub);
-      line-height: 1.6;
-    }
-
-    .side-note strong {
-      display: block;
-      margin-bottom: 0.4rem;
-      color: #111827;
-    }
-
-    /* Footer */
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 1.5rem 0 2rem;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      background: #f9fafb;
-      margin-top: auto;
-    }
-
-    footer .footer-inner {
+      font-weight: 500;
+      color: #555;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    input,
+    select,
+    textarea {
+      border-radius: 0.4rem;
+      border: 1px solid #d2d5dc;
+      background: #fff;
+      padding: 0.55rem 0.7rem;
+      font: inherit;
+      outline: none;
+    }
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #6366f1;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 0.8rem;
     }
-
-    footer a { color: #4b5563; }
-
-    /* Responsive */
-
-    @media (max-width: 880px) {
-      .contact-grid { grid-template-columns: minmax(0, 1fr); }
+    .card-note {
+      font-size: 0.75rem;
+      color: #777;
+      margin-top: 0.5rem;
     }
 
-    @media (max-width: 760px) {
-      .nav-links { display: none; }
+    .contact-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.8rem;
+      padding: 1.2rem;
+      font-size: 0.9rem;
+      max-width: 420px;
+    }
+    .contact-card a {
+      color: #4755f1;
+      text-decoration: none;
     }
 
-    @media (max-width: 640px) {
-      .hero {
-        border-radius: 0;
-        margin-top: 0.8rem;
+    .footer {
+      margin-top: auto;
+      background: #ffffff;
+      border-top: 1px solid #e5e7eb;
+      padding: 1.5rem 0;
+      font-size: 0.82rem;
+      color: #505050;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+    }
+    .footer-main {
+      max-width: 40rem;
+      line-height: 1.45;
+    }
+
+    @media (max-width: 900px) {
+      .principles-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .how-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 700px) {
+      .form,
+      .contact-card {
+        max-width: 100%;
       }
     }
   </style>
-</head>
-<body>
-<div class="page">
-
-  <!-- Header -->
-  <header>
-    <div class="shell nav" aria-label="Main navigation">
-      <a href="#" class="logo">
-        <div class="logo-mark">A</div>
-        <div class="logo-text">AmicBridge</div>
-      </a>
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#business">Business &amp; profit sharing</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="nav-cta">
-        <a href="#contact">Sign in</a>
-        <button class="btn-small" type="button" id="btn-join-nav">Join the network</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <main>
-    <section class="hero" id="about">
-      <div class="shell hero-inner">
-        <div class="hero-text">
-          <h1 class="hero-title">
-            A private, trusted bridge between borrowers, lenders and business partners.
-          </h1>
-          <p class="hero-body">
-            AmicBridge is a private peer-to-peer network. Every member goes through identity checks
-            before being allowed into the network, and every request is collected in a clear, structured way.
-            Our role is to be the trusted bridge: we review who is entering, how they present themselves,
-            and how they describe what they want to borrow, lend, or invest in together – whether that is in
-            local currency, another currency, or crypto, depending on what both sides agree and what local law allows.
-          </p>
-
-          <div class="hero-actions">
-            <button class="btn-primary" type="button" id="btn-request-loan">
-              Request a loan
-            </button>
-            <button class="btn-secondary" type="button" id="btn-offer-lending">
-              Offer lending
-            </button>
-            <button class="btn-ghost" type="button" id="btn-business-invest">
-              Seek business investment / share profit
-            </button>
-          </div>
-
-          <p class="hero-footnote">
-            AmicBridge never holds funds or crypto, never signs loan or investment contracts, and never guarantees
-            repayment, returns or matches. All agreements and transfers – whether in bank money or crypto – happen
-            directly between members, who must make their own decisions, assessments and compliance checks.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Business investment section -->
-    <section class="section" id="business">
-      <div class="shell">
-        <h2 class="section-title">Business investment &amp; shared profit.</h2>
-        <p class="section-text">
-          Some members don’t just want a one-off loan – they want partners. AmicBridge can be used to find people
-          who are willing to invest in a business and share the profit (and risk) together in a clear, documented way.
-        </p>
-
-        <div class="card-simple">
-          <h3>What “shared profit” can look like on AmicBridge</h3>
-          <p>The exact structure depends on local law and what you agree together, but the idea is simple:</p>
-          <ul>
-            <li>One person (or group) needs investment for a business or project.</li>
-            <li>Another person (or group) brings capital as a partner, not just as a lender.</li>
-            <li>You agree on how profit will be shared and how losses are handled.</li>
-            <li>Those rules are written down in a contract outside the platform.</li>
-          </ul>
-          <p style="margin-top:0.5rem;">
-            AmicBridge helps you find each other, present your project in a structured way, and keep a record of who
-            you spoke to and what was discussed. It does <strong>not</strong> guarantee returns or provide legal, tax or investment advice.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact / request form -->
-    <section class="section" id="contact">
-      <div class="shell">
-        <h2 class="section-title">Send a request about borrowing, lending or business investment.</h2>
-        <p class="section-text">
-          Use this form to signal interest in the network – whether you mainly want to borrow,
-          lend, or find partners to invest in a business and share profit together, in traditional currency or crypto.
-        </p>
-
-        <div class="contact-grid">
-          <div class="card">
-            <form id="contact-form" method="post" action="#">
-              <div class="field">
-                <label for="intent">I am mainly interested in</label>
-                <select id="intent" name="intent">
-                  <option value="">Select an option</option>
-                  <option value="Borrowing">Borrowing</option>
-                  <option value="Lending">Lending</option>
-                  <option value="Business investment / profit sharing">Business investment / profit sharing</option>
-                  <option value="Both">Both borrowing and lending / investing</option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label for="currency">Preferred currency or crypto</label>
-                <input id="currency" name="currency" type="text" placeholder="e.g. EUR, NOK, USD, BTC, USDT" />
-                <small>This is just for information. Real transfers would happen directly between you and the other member.</small>
-              </div>
-
-              <div class="field">
-                <label for="name">Name</label>
-                <input id="name" name="name" type="text" placeholder="Your full name" required />
-              </div>
-
-              <div class="field">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="you@example.com" required />
-              </div>
-
-              <div class="field">
-                <label for="message">Short description</label>
-                <textarea id="message" name="message" rows="4" placeholder="Describe briefly what you want to do – borrow, lend, or raise investment and share profit, and how you imagine using currency or crypto." required></textarea>
-                <small>This example form does not create an account, offer, contract or any promise of funding.</small>
-              </div>
-
-              <button class="btn-primary" type="submit">Send request</button>
-              <div class="form-note">
-                Please do not include sensitive personal data (full ID numbers, private keys, seed phrases, passwords, etc.) in this message.
-              </div>
-
-              <div class="form-success" id="form-success">
-                Thank you. Your request has been recorded on this example page.
-                In a real implementation, this would be sent securely to the AmicBridge team for follow-up.
-              </div>
-            </form>
-          </div>
-
-          <div class="side-note">
-            <strong>What AmicBridge does in all cases.</strong>
-            <p>
-              Whether you need a simple personal loan, want to lend to someone you trust, or want a partner for a business,
-              the idea is the same: make it easier to find each other and talk with clear, structured information –
-              including what currency or crypto you prefer to use.
-            </p>
-            <p style="margin-top:0.6rem;">
-              AmicBridge itself does not sit in the middle of contracts or money flows. Members stay in control, agree on
-              their own terms, and should always get professional legal, financial and (for crypto) regulatory advice before committing.
-            </p>
-            <p style="margin-top:0.8rem;">
-              <strong>Contact the founder &amp; CEO</strong><br>
-              Habbitx &mdash; <a href="mailto:robertamicolsen@gmail.com">robertamicolsen@gmail.com</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="shell footer-inner">
-      <div>
-        © <span id="year"></span> AmicBridge. All rights reserved.
-        &nbsp;|&nbsp;
-        CEO: Robert &mdash;
-        <a href="mailto:robertamicolsen@gmail.com">robertamicolsen@gmail.com</a>
-      </div>
-      <div>
-        <a href="#terms">Terms</a> · <a href="#privacy">Privacy</a>
-      </div>
-    </div>
-  </footer>
-
-</div>
-
-<script>
-  // Year
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  function goToContact(intentValue) {
-    var select = document.getElementById("intent");
-    if (select && intentValue) {
-      select.value = intentValue;
-    }
-    var contact = document.getElementById("contact");
-    if (contact && contact.scrollIntoView) {
-      contact.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }
-
-  document.getElementById("btn-request-loan")
-    .addEventListener("click", function () {
-      goToContact("Borrowing");
-    });
-
-  document.getElementById("btn-offer-lending")
-    .addEventListener("click", function () {
-      goToContact("Lending");
-    });
-
-  document.getElementById("btn-business-invest")
-    .addEventListener("click", function () {
-      goToContact("Business investment / profit sharing");
-    });
-
-  document.getElementById("btn-join-nav")
-    .addEventListener("click", function () {
-      goToContact("");
-    });
-
-  // Demo submit handler
-  var form = document.getElementById("contact-form");
-  var success = document.getElementById("form-success");
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    success.classList.add("visible");
-  });
-</script>
-</body>
 </html>
