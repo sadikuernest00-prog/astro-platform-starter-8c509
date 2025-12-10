@@ -11,7 +11,8 @@ export default function ConnectWallet() {
       setConnecting(true);
       setError(null);
 
-      const { ethereum } = window as any;
+      const anyWindow = window as any;
+      const ethereum = anyWindow.ethereum;
 
       if (!ethereum) {
         setError("No wallet found. Install MetaMask or another Web3 wallet.");
@@ -19,9 +20,8 @@ export default function ConnectWallet() {
       }
 
       const provider = new ethers.BrowserProvider(ethereum);
-
-      // Ask the wallet to connect accounts
       await provider.send("eth_requestAccounts", []);
+
       const signer = await provider.getSigner();
       const addr = await signer.getAddress();
 
@@ -56,8 +56,9 @@ export default function ConnectWallet() {
           fontWeight: 600,
           fontSize: "14px",
           cursor: "pointer",
+          background: "#2563eb",
+          color: "white",
         }}
-        className="btn-primary"
       >
         {address
           ? "Wallet connected"
@@ -79,7 +80,7 @@ export default function ConnectWallet() {
       )}
 
       <p style={{ fontSize: "12px", color: "#6b7280" }}>
-        Hardware wallets like Ledger/Trezor can be used by connecting them
+        Hardware wallets (Ledger, Trezor, etc.) can be used by connecting them
         through MetaMask or another Web3 wallet in your browser.
       </p>
     </div>
