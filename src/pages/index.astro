@@ -1,496 +1,408 @@
-
 ---
---->
-<!DOCTYPE html>
+const site = {
+  name: "AmicBridge",
+  tagline: "A private bridge between borrowers, lenders, and business partners.",
+  desc:
+    "AmicBridge is a private peer-to-peer network for introductions and structured agreements. We are not a bank, do not custody funds, and do not guarantee repayment.",
+};
+---
+
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>AmicBridge – A private bridge between borrowers, lenders and business partners</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="AmicBridge is a private peer-to-peer network. We connect people who want to lend, borrow, invest or learn strategy on their own terms, with a strong focus on identity, clarity and trust.">
-  <style>
-    :root {
-      --bg: #f5f5f7;
-      --surface: #ffffff;
-      --border: #e5e7eb;
-      --text-main: #111827;
-      --text-sub: #4b5563;
-      --text-muted: #6b7280;
-      --primary: #2563eb;
-      --primary-hover: #1d4ed8;
-      --radius-lg: 12px;
-      --radius-pill: 999px;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.06);
-      --max-width: 1000px;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-      background: var(--bg);
-      color: var(--text-main);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    button { font-family: inherit; }
-
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .shell {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.9rem 0;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-    }
-
-    .logo-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      background: #2563eb;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-
-    .logo-text {
-      font-weight: 600;
-      font-size: 0.98rem;
-      color: #111827;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.4rem;
-      font-size: 0.9rem;
-      color: #4b5563;
-    }
-
-    .nav-links a {
-      position: relative;
-      padding-bottom: 0.1rem;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -0.12rem;
-      width: 0;
-      height: 2px;
-      border-radius: 999px;
-      background: #2563eb;
-      transition: width 0.15s ease-out;
-    }
-
-    .nav-links a:hover::after { width: 100%; }
-
-    .nav-cta {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      font-size: 0.9rem;
-    }
-
-    .nav-cta a { color: #2563eb; font-weight: 500; }
-
-    .nav-cta .btn-small {
-      padding: 0.45rem 0.95rem;
-      border-radius: 999px;
-      border: 1px solid #d1d5db;
-      background: #ffffff;
-      font-size: 0.85rem;
-      cursor: pointer;
-    }
-
-    .nav-cta .btn-small:hover { background: #f3f4f6; }
-
-    .hero {
-      background: var(--surface);
-      border-radius: 0 0 24px 24px;
-      box-shadow: var(--shadow-soft);
-      margin-top: 1.4rem;
-      margin-bottom: 2.2rem;
-      padding: 3rem 0 3.2rem;
-    }
-
-    .hero-inner {
-      display: flex;
-      flex-direction: column;
-      gap: 1.8rem;
-    }
-
-    .hero-text { max-width: 680px; }
-
-    .hero-title {
-      font-size: clamp(2rem, 2.6vw + 1.2rem, 2.6rem);
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .hero-body {
-      font-size: 0.98rem;
-      color: var(--text-sub);
-      line-height: 1.55;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.9rem;
-      margin-top: 1.6rem;
-    }
-
-    .btn-primary {
-      border-radius: var(--radius-pill);
-      border: none;
-      background: var(--primary);
-      color: #ffffff;
-      padding: 0.68rem 1.3rem;
-      font-size: 0.95rem;
-      font-weight: 500;
-      cursor: pointer;
-      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .btn-primary:hover { background: var(--primary-hover); }
-
-    .btn-secondary {
-      border-radius: var(--radius-pill);
-      border: 1px solid #d1d5db;
-      background: #ffffff;
-      color: #111827;
-      padding: 0.68rem 1.3rem;
-      font-size: 0.95rem;
-      font-weight: 500;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .btn-secondary:hover { background: #f9fafb; }
-
-    .btn-ghost {
-      border-radius: var(--radius-pill);
-      border: none;
-      background: transparent;
-      color: #2563eb;
-      padding: 0.68rem 0.8rem;
-      font-size: 0.9rem;
-      font-weight: 500;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-footnote {
-      margin-top: 1.2rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      max-width: 640px;
-      line-height: 1.5;
-    }
-
-    .section {
-      margin-bottom: 3rem;
-    }
-
-    .section-title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-    }
-
-    .section-text {
-      font-size: 0.95rem;
-      color: var(--text-sub);
-      margin-bottom: 1.2rem;
-    }
-
-    .card-simple {
-      background: #ffffff;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      padding: 1.2rem 1.4rem 1.3rem;
-      box-shadow: var(--shadow-soft);
-      font-size: 0.93rem;
-      color: var(--text-sub);
-    }
-
-    .card-simple h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-      color: var(--text-main);
-    }
-
-    .card-simple ul {
-      margin: 0.5rem 0 0 1.1rem;
-      padding: 0;
-    }
-
-    .card-simple li { margin-bottom: 0.25rem; }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 2rem;
-    }
-
-    .card {
-      background: #ffffff;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      padding: 1.4rem 1.4rem 1.5rem;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .field {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-      margin-bottom: 0.9rem;
-      font-size: 0.9rem;
-    }
-
-    .field label {
-      color: #111827;
-      font-weight: 500;
-    }
-
-    .field input,
-    .field textarea,
-    .field select {
-      border-radius: 8px;
-      border: 1px solid #d1d5db;
-      padding: 0.55rem 0.7rem;
-      font-size: 0.9rem;
-      font-family: inherit;
-      resize: vertical;
-    }
-
-    .field input:focus,
-    .field textarea:focus,
-    .field select:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.2);
-    }
-
-    .field small {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    .field-inline {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.9rem;
-    }
-
-    .checkbox-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.45rem;
-      font-size: 0.82rem;
-      color: var(--text-sub);
-      margin-top: 0.2rem;
-    }
-
-    .checkbox-row input { margin-top: 0.15rem; }
-
-    .form-note {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 0.4rem;
-    }
-
-    .side-note {
-      font-size: 0.9rem;
-      color: var(--text-sub);
-      line-height: 1.6;
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 1.5rem 0 2rem;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      background: #f9fafb;
-      margin-top: auto;
-    }
-
-    footer .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 0.8rem;
-    }
-
-    footer a { color: #4b5563; }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1.2rem;
-    }
-
-    .step-card {
-      background: #ffffff;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      padding: 1rem 1rem 1.1rem;
-      font-size: 0.9rem;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
-    }
-
-    .step-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      margin-bottom: 0.25rem;
-    }
-
-    .step-title {
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-      color: var(--text-main);
-    }
-
-    .step-text {
-      font-size: 0.86rem;
-      color: var(--text-sub);
-    }
-
-    @media (max-width: 880px) {
-      .contact-grid { grid-template-columns: minmax(0, 1fr); }
-      .steps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-
-    @media (max-width: 760px) {
-      .nav-links { display: none; }
-    }
-
-    @media (max-width: 640px) {
-      .hero { border-radius: 0; margin-top: 0.8rem; }
-      .steps-grid { grid-template-columns: minmax(0, 1fr); }
-    }
-  </style>
-</head>
-<body>
-<div class="page">
-
-  <!-- Header -->
-  <header>
-    <div class="shell nav" aria-label="Main navigation">
-      <a href="/" class="logo">
-        <div class="logo-mark">A</div>
-        <div class="logo-text">AmicBridge</div>
-      </a>
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#how-it-works">How it works</a>
-        <a href="#trust">Trust &amp; profile</a>
-        <a href="#business">Business &amp; profit sharing</a>
-        <a href="#strategy">Investment strategy</a>
-        <a href="/create-profile">Create profile</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="nav-cta">
-        <a href="#contact">Sign in</a>
-        <button class="btn-small" type="button" id="btn-join-nav">Join the network</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <main>
-    <section class="hero" id="about">
-      <div class="shell hero-inner">
-        <div class="hero-text">
-          <h1 class="hero-title">
-            A private, trusted bridge between borrowers, lenders and business partners.
-          </h1>
-
-          <!-- Your new line -->
-          <p class="hero-body" style="font-weight:600; color:#111827;">
-            Grow your money with investments big or small.
-          </p>
-
-          <p class="hero-body">
-            AmicBridge is a private network that connects people who want to lend and borrow money on
-            their own terms. We don’t control the deal – we help you find real people who could become
-            valuable financial partners for the future, whether that is through lending, shared profit,
-            or long-term business collaboration.
-          </p>
-
-          <div class="hero-actions">
-            <button class="btn-primary" type="button" id="btn-request-loan">
-              Request a loan
-            </button>
-            <button class="btn-secondary" type="button" id="btn-offer-lending">
-              Offer lending
-            </button>
-            <button class="btn-ghost" type="button" id="btn-business-invest">
-              Seek business investment / share profit
-            </button>
-            <button class="btn-ghost" type="button" id="btn-invest-strategy">
-              Ask about investment strategy
-            </button>
-            <button class="btn-ghost" type="button" id="btn-create-profile">
-              Create profile
-            </button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{site.name} — {site.tagline}</title>
+    <meta name="description" content={site.desc} />
+
+    <style>
+      :root {
+        --bg: #0b1220;
+        --bg2: #0f1b33;
+        --surface: rgba(255, 255, 255, 0.06);
+        --surface2: rgba(255, 255, 255, 0.08);
+        --border: rgba(255, 255, 255, 0.12);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.68);
+        --muted2: rgba(255, 255, 255, 0.55);
+        --primary: #4f8cff;
+        --primaryHover: #2f76ff;
+        --good: #52d29a;
+        --warn: #ffd66b;
+        --radius: 16px;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        --max: 1120px;
+      }
+
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+        color: var(--text);
+        background:
+          radial-gradient(900px 500px at 15% 10%, rgba(79, 140, 255, 0.22), transparent 60%),
+          radial-gradient(700px 450px at 85% 15%, rgba(82, 210, 154, 0.14), transparent 60%),
+          linear-gradient(180deg, var(--bg), var(--bg2));
+      }
+
+      a { color: inherit; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      .container { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        gap: 10px;
+        padding: 12px 16px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text);
+        font-weight: 650;
+        cursor: pointer;
+        transition: transform 0.08s ease, background 0.2s ease, border-color 0.2s ease;
+        box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+      }
+      .btn:hover { background: rgba(255, 255, 255, 0.07); transform: translateY(-1px); text-decoration: none; }
+      .btnPrimary {
+        background: linear-gradient(180deg, rgba(79, 140, 255, 0.95), rgba(47, 118, 255, 0.95));
+        border-color: rgba(79, 140, 255, 0.55);
+        color: #fff;
+      }
+      .btnPrimary:hover { background: linear-gradient(180deg, rgba(79, 140, 255, 1), rgba(47, 118, 255, 1)); }
+
+      .pill {
+        display:inline-flex; align-items:center; gap:8px;
+        font-size: 12px; color: var(--muted);
+        padding: 7px 10px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: rgba(255,255,255,0.04);
+      }
+      .dot { width: 8px; height: 8px; border-radius: 999px; background: var(--good); box-shadow: 0 0 0 4px rgba(82, 210, 154, 0.16); }
+
+      header {
+        position: sticky; top: 0; z-index: 50;
+        backdrop-filter: blur(10px);
+        background: rgba(11, 18, 32, 0.55);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav {
+        display:flex; align-items:center; justify-content: space-between;
+        padding: 12px 0;
+      }
+      .brand { display:flex; align-items:center; gap:12px; }
+      .logo {
+        width: 36px; height: 36px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, rgba(79, 140, 255, 1), rgba(82, 210, 154, 0.9));
+        box-shadow: var(--shadow);
+      }
+      .brandName { font-weight: 800; letter-spacing: 0.2px; }
+      .navlinks { display:flex; gap: 14px; align-items:center; }
+      .navlinks a {
+        color: var(--muted);
+        font-weight: 650;
+        font-size: 14px;
+        padding: 8px 10px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+      }
+      .navlinks a:hover { color: var(--text); border-color: var(--border); text-decoration: none; }
+
+      .hero { padding: 52px 0 18px; }
+      .heroGrid {
+        display:grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        align-items: start;
+      }
+      @media (min-width: 980px) {
+        .heroGrid { grid-template-columns: 1.25fr 0.75fr; }
+      }
+
+      h1 {
+        margin: 10px 0 12px;
+        font-size: clamp(28px, 3.4vw, 44px);
+        line-height: 1.08;
+        letter-spacing: -0.6px;
+      }
+      .lead {
+        margin: 0 0 18px;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.6;
+        max-width: 62ch;
+      }
+      .actions { display:flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+
+      .card {
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: var(--radius);
+        padding: 16px;
+        box-shadow: var(--shadow);
+      }
+      .cardTitle { font-weight: 800; margin: 0 0 6px; }
+      .cardText { margin: 0; color: var(--muted); line-height: 1.55; font-size: 14px; }
+
+      .section { padding: 26px 0; }
+      .sectionHead { display:flex; justify-content: space-between; gap: 14px; align-items: baseline; margin-bottom: 12px; }
+      .h2 { margin: 0; font-size: 18px; font-weight: 850; letter-spacing: -0.2px; }
+      .hint { color: var(--muted2); font-size: 13px; line-height: 1.4; }
+
+      .grid3 {
+        display:grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      @media (min-width: 880px) {
+        .grid3 { grid-template-columns: repeat(3, 1fr); }
+      }
+
+      .howGrid {
+        display:grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      @media (min-width: 980px) {
+        .howGrid { grid-template-columns: 1fr 1fr; }
+      }
+
+      .step {
+        display:flex; gap: 12px;
+        padding: 14px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        border-radius: var(--radius);
+      }
+      .badge {
+        width: 34px; height: 34px;
+        border-radius: 12px;
+        display:flex; align-items:center; justify-content:center;
+        background: rgba(79,140,255,0.18);
+        border: 1px solid rgba(79,140,255,0.30);
+        font-weight: 900;
+        color: rgba(255,255,255,0.92);
+      }
+      .step h3 { margin: 0 0 4px; font-size: 14px; font-weight: 900; }
+      .step p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+
+      .notice {
+        border: 1px solid rgba(255, 214, 107, 0.28);
+        background: rgba(255, 214, 107, 0.08);
+        border-radius: var(--radius);
+        padding: 14px;
+        color: rgba(255,255,255,0.86);
+      }
+      .notice strong { color: rgba(255,255,255,0.95); }
+      .notice p { margin: 6px 0 0; color: rgba(255,255,255,0.72); line-height: 1.55; font-size: 13px; }
+
+      footer {
+        margin-top: 24px;
+        border-top: 1px solid var(--border);
+        padding: 22px 0 34px;
+        color: var(--muted);
+      }
+      .footGrid {
+        display:grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      @media (min-width: 900px) {
+        .footGrid { grid-template-columns: 1.3fr 0.7fr 1fr; }
+      }
+      .footTitle { font-weight: 900; color: rgba(255,255,255,0.86); margin: 0 0 8px; }
+      .footLinks { display:flex; flex-direction: column; gap: 8px; }
+      .footLinks a { color: var(--muted); }
+      .footLinks a:hover { color: var(--text); text-decoration: none; }
+      .tiny { font-size: 12px; color: var(--muted2); line-height: 1.45; margin-top: 12px; }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <div class="nav">
+          <div class="brand">
+            <div class="logo" aria-hidden="true"></div>
+            <div>
+              <div class="brandName">{site.name}</div>
+              <div style="font-size:12px;color:var(--muted2);margin-top:2px;">
+                Private network • Structured agreements
+              </div>
+            </div>
           </div>
 
-          <p class="hero-footnote">
-            AmicBridge never holds funds or crypto, never signs loan or investment contracts, and never guarantees
-            repayment, returns or matches. All agreements and transfers happen directly between members, who must
-            make their own decisions, assessments and compliance checks.
-          </p>
+          <nav class="navlinks" aria-label="Primary">
+            <a href="#how">How it works</a>
+            <a href="#trust">Trust</a>
+            <a href="/contact">Contact</a>
+            <a class="btn btnPrimary" href="/create-profile">Join</a>
+          </nav>
         </div>
       </div>
-    </section>
-    
-    <!-- the rest of your page remains unchanged -->
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="heroGrid">
+            <div>
+              <span class="pill"><span class="dot"></span> Private introductions for real deals</span>
+              <h1>{site.tagline}</h1>
+              <p class="lead">
+                AmicBridge connects verified members and helps structure private lending and partnerships with clear terms and a standard agreement flow.
+                <strong>We are not a bank</strong>, we do not custody funds, and we do not guarantee repayment.
+              </p>
+
+              <div class="actions">
+                <a class="btn btnPrimary" href="/create-profile">Create profile</a>
+                <a class="btn" href="/deal/contract">Sign agreement</a>
+                <a class="btn" href="/legal/private-loan-agreement">View contract template</a>
+              </div>
+
+              <div class="tiny">
+                Reminder: private lending carries risk. Always perform due diligence and consider legal advice in your jurisdiction.
+              </div>
+            </div>
+
+            <aside class="card">
+              <p class="cardTitle">What AmicBridge does</p>
+              <p class="cardText">
+                We provide a structured workflow for introductions and documentation — so both sides can move from “discussion” to “signed agreement” with less ambiguity.
+              </p>
+              <div style="height:12px;"></div>
+              <p class="cardTitle">What AmicBridge does not do</p>
+              <p class="cardText">
+                We do not hold money, approve loans, guarantee outcomes, or act as a lender/borrower/broker. Agreements are directly between members.
+              </p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="trust" class="section">
+        <div class="container">
+          <div class="sectionHead">
+            <h2 class="h2">Built for clarity, not hype</h2>
+            <div class="hint">Trust comes from structure and traceability.</div>
+          </div>
+
+          <div class="grid3">
+            <div class="card">
+              <p class="cardTitle">Verified membership</p>
+              <p class="cardText">Profiles are structured for due diligence and clearer counterparty evaluation (identity and documentation vary by process).</p>
+            </div>
+            <div class="card">
+              <p class="cardTitle">Standard agreement flow</p>
+              <p class="cardText">Use a consistent contract template and signing step to reduce misunderstandings before money moves.</p>
+            </div>
+            <div class="card">
+              <p class="cardTitle">Platform independence</p>
+              <p class="cardText">Funds move directly between parties. AmicBridge does not custody assets or intermediate payments.</p>
+            </div>
+          </div>
+
+          <div style="height:12px;"></div>
+
+          <div class="notice">
+            <strong>Important</strong>
+            <p>
+              AmicBridge is an introductions and documentation platform. All lending decisions, contract terms, and enforcement are the sole responsibility of the parties.
+              Do not participate unless you understand the risks and local legal requirements.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="how" class="section">
+        <div class="container">
+          <div class="sectionHead">
+            <h2 class="h2">How it works</h2>
+            <div class="hint">Simple process. Serious documentation.</div>
+          </div>
+
+          <div class="howGrid">
+            <div class="step">
+              <div class="badge">1</div>
+              <div>
+                <h3>Create a profile</h3>
+                <p>Provide the details needed for matching and due diligence (role, intent, region, terms range).</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="badge">2</div>
+              <div>
+                <h3>Match privately</h3>
+                <p>Connect borrower and lender (or business partners) based on needs and terms — without broadcasting public listings.</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="badge">3</div>
+              <div>
+                <h3>Sign the agreement</h3>
+                <p>Use the standard loan agreement flow to document terms and generate a signed record for both parties.</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="badge">4</div>
+              <div>
+                <h3>Execute directly</h3>
+                <p>Payments and repayments are performed directly between the parties. Keep records. Keep receipts.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="height:14px;"></div>
+          <div class="actions">
+            <a class="btn btnPrimary" href="/create-profile">Start</a>
+            <a class="btn" href="/deal/contract">Open signing</a>
+            <a class="btn" href="/contact">Talk to us</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footGrid">
+          <div>
+            <div class="footTitle">{site.name}</div>
+            <div style="color:var(--muted);line-height:1.55;">
+              A private peer-to-peer network for introductions and structured agreements.
+            </div>
+            <div class="tiny">
+              Disclaimer: AmicBridge is not a bank, lender, borrower, broker, or guarantor. We do not custody funds and do not guarantee repayment.
+              This website content is informational and not legal or financial advice.
+            </div>
+          </div>
+
+          <div>
+            <div class="footTitle">Legal</div>
+            <div class="footLinks">
+              <a href="/legal/private-loan-agreement">Private Loan Agreement Template</a>
+              <a href="/deal/contract">Signing Page</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footTitle">Support</div>
+            <div class="footLinks">
+              <a href="/contact">Contact</a>
+              <a href="/revalidation">Revalidation</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tiny" style="margin-top:14px;">
+          © {new Date().getFullYear()} {site.name}. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
